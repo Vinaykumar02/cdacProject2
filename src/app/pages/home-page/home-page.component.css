@@ -1,6 +1,15 @@
-/* .body{
-    background-image: url(../../../assets/dog.jpeg);
+.bg {
+    background-image: url("../../../assets/dog.jpeg");
+    height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
-} */
+    background-size: cover;
+  }
+
+.content{
+    color: whitesmoke;
+    max-width: 250px;
+    max-height: 50px;
+    /* margin: auto; */
+    /* align-content: center; */
+}

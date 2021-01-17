@@ -1,16 +1,25 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable} from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  rootUrl = '';
-  constructor(private _http: HttpClient) { }
+  url = " ";
+  
+  constructor(private _http: HttpClient) { 
 
-  getLoginDetails(){
-    // this._http.
   }
+  getLoginDetails(cred): Observable<any>{
+   return  this._http.get<any>(`${this.url}/${cred}`)
+  }
+
+  postPetDetails(petData): Observable<any>{
+
+    return this._http.post<any>(this.url, petData)
+    
+  }
+  
 }

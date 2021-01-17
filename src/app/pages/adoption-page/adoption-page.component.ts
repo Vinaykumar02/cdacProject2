@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import {AdoptionModel} from './adoption-model'
+import {UserService} from '../../service/user.service'
 // import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -11,8 +13,9 @@ import { Router } from '@angular/router';
 export class AdoptionPageComponent implements OnInit {
 
  
+  adoptionForm = new AdoptionModel("name","adhaar",0,"mobile","email",false)
 
-  constructor(private router: Router) { }
+  constructor (private router: Router,private _userService : UserService) { }
 
   ngOnInit(): void {
     
@@ -22,6 +25,11 @@ export class AdoptionPageComponent implements OnInit {
   onSubmit(myForm:NgForm){
     console.log("Adopted");
     // RouterLink="address"
+    console.log(this.adoptionForm);
+    // this._userService.postUserDetails(this.adoptionForm).subscribe(result=>{
+    //   console.log(result);
+    //   this.router.navigate(['/address']);
+    // })
     this.router.navigate(['/address']);
   }
 }
