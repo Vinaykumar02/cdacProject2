@@ -1,0 +1,36 @@
+<div fxLayoutAlign="center center"  fxFlexFill class="mainDiv">
+    <mat-card fxFlex="50">
+        <mat-toolbar color="primary" class="heading">Fill the form</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="postForm" novalidate #postForm="ngForm"
+            (ngSubmit)="onSubmit(postForm)">
+            <mat-form-field appearance="fill">
+                <mat-label>Animal</mat-label>
+                <input matInput>
+            </mat-form-field >
+            <mat-form-field appearance="fill">
+                <mat-label>Breed</mat-label>
+                <input matInput>
+            </mat-form-field >
+            <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <input matInput>
+            </mat-form-field >
+            <mat-form-field appearance="fill">
+                <mat-label>Location</mat-label>
+                <input matInput>
+            </mat-form-field >
+            <mat-form-field appearance="fill">
+                <mat-label>Image</mat-label>
+                <input matInput>
+            </mat-form-field >
+            <mat-form-field appearance="fill">
+                <mat-label>Details</mat-label>
+                <input matInput>
+            </mat-form-field >
+
+           
+            <button mat-raised-button type="submit" color="primary">Post</button>
+        </form>
+
+    </mat-card>
+</div>

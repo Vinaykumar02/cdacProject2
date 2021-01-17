@@ -1,0 +1,14 @@
+.navbar{
+    justify-content: space-between;
+    background-color: rgb(111 0 0 / 24%);
+
+}
+div.logo{
+    color: #dc3545;
+}
+a{
+    color: #dc3545;
+}
+span{
+    padding-right: 1rem;
+}
