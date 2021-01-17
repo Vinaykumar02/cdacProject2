@@ -18,6 +18,9 @@ export class LoginPageComponent implements OnInit {
   onSubmit(myform:NgForm)
   {
     // this.login.getLoginCredential();
+    console.log(myform.value);
+    // console.log(myform.value);
+    
     console.log("form submited")
   }
 

@@ -18,6 +18,7 @@ import { MaterialModule } from '../app/material/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
