@@ -6,6 +6,7 @@ import { AddressPageComponent } from './pages/address-page/address-page.componen
 import { PostPageComponent } from './pages/post-page/post-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-page.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path : 'posts',
     component : PostPageComponent
+  },
+  {
+    path : 'pet_details',
+    component : PetDetailsPageComponent
   },
   {
     path : '',

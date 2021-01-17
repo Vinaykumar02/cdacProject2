@@ -6,30 +6,30 @@
             (ngSubmit)="onSubmit(adoptionForm)" class="adoptionForm">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput >
+                <input matInput [(ngModel)]="adoptionForm.name" name="userName" >
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Adhaar Number</mat-label>
-                <input matInput >
+                <input matInput [(ngModel)]="adoptionForm.adhaarNumber" name="adhaar" >
             </mat-form-field>
       
             <mat-form-field appearance="fill">
                 <mat-label>Age</mat-label>
-                <input matInput type="number" >
+                <input matInput type="number" [(ngModel)]="adoptionForm.age" name="age"  >
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Mobile Number</mat-label>
-                <input matInput type="tel" >
+                <input matInput type="tel" [(ngModel)]="adoptionForm.mobile" name="mobile"  >
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Email Id</mat-label>
-                <input matInput type="email" >
+                <input matInput type="email" [(ngModel)]="adoptionForm.email" name="email" >
             </mat-form-field>
- 
-            <mat-checkbox>Petition</mat-checkbox>
+            <!-- [(ngModel)]="adoptionForm.petitionSigned" name="petetion" -->
+            <mat-checkbox  >Petition</mat-checkbox>
          
         
             <button mat-raised-button type="submit" color="primary">Next</button>

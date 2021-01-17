@@ -4,32 +4,37 @@
         <form fxLayoutAlign="stretch" fxLayout="column" class="addressForm" novalidate #addressForm="ngForm" (ngSubmit)="onSubmit(addressForm)">
             <mat-form-field appearance="fill">
                 <mat-label>Flat/House Number</mat-label>
-                <input matInput>
+                <input matInput [(ngModel)]="addressData.flatNumber", name="flatNumber">
             </mat-form-field >
             <mat-form-field appearance="fill">
                 <mat-label>Street</mat-label>
-                <input matInput>
+                <input matInput [(ngModel)]="addressData.street ", name="street">
             </mat-form-field >
             <mat-form-field appearance="fill">
                 <mat-label>Area</mat-label>
-                <input matInput>
+                <input matInput [(ngModel)]=" addressData.area", name="area" >
             </mat-form-field >
             <mat-form-field appearance="fill">
                 <mat-label>City</mat-label>
-                <input matInput>
+                <input matInput [(ngModel)]="addressData.city ", name="city">
             </mat-form-field >
             <mat-form-field appearance="fill">
                 <mat-label>District</mat-label>
-                <input matInput>
+                <input matInput [(ngModel)]="addressData.district", name="district">
             </mat-form-field >
             <mat-form-field appearance="fill">
                 <mat-label>State</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let state of states" [value]="food">
+                <!-- [(ngModel)]="addressData.state ", name="state" -->
+                <mat-select >
+                  <mat-option *ngFor="let state of states" [value]="state">
                     {{state}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Pincode</mat-label>
+                <input matInput [(ngModel)]="addressData.pinCode ", name="pinCode">
+            </mat-form-field >
             
             <button mat-raised-button type="submit" color="primary">Adopt</button>
         </form>
