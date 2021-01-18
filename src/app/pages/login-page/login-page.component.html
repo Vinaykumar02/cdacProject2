@@ -1,8 +1,10 @@
 <div fxLayoutAlign="center center"  fxFlexFill class="mainDiv">
+
     <mat-card fxFlex="30">
         <mat-toolbar color="primary" class="heading">Login Page</mat-toolbar>
         <form fxLayoutAlign="stretch" fxLayout="column" class="loginForm" novalidate #loginForm="ngForm"
             (ngSubmit)="onSubmit(loginForm)">
+            
             <mat-form-field appearance="fill">
                 <mat-label>Username or Email ID</mat-label>
                 <input matInput name="userId"  ngModel>

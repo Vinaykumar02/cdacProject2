@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import {HttpClientModule} from '@angular/common/http';
 import { StepperComponent } from './stepper/stepper.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { StepperComponent } from './stepper/stepper.component';
     ReactiveFormsModule,
     FormsModule,
     AngularFileUploaderModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule
     
   ],
   providers: [],

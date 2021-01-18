@@ -30,12 +30,17 @@ export class LoginPageComponent implements OnInit {
     //   {
     //     this.userName = data.userName;
         this.userName=myform.value.userId
-        sessionStorage.setItem(this.userName,myform.value.userId)
+        sessionStorage.setItem('userName',myform.value.userId)
         
         this.router.navigate(['/']);
+        // this.router.navigate(['/']);
+
+        // window.location.reload()
     //   }
-    //   else
+    //   else{
     //   this.router.navigate(['/login'])
+    // sessionStorage.setItem('userName','false')
+        // }
     // })
     
 
