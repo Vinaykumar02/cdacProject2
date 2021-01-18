@@ -19,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import {HttpClientModule} from '@angular/common/http';
+import { StepperComponent } from './stepper/stepper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import {HttpClientModule} from '@angular/common/http';
     AddressPageComponent,
     FooterComponent,
     HeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,

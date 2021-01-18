@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
-import {AddressDetails} from './address-details';
+import {AddressDetails} from '../../pojos/address-details';
 @Component({
   selector: 'app-address-page',
   templateUrl: './address-page.component.html',

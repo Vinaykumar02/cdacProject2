@@ -12,6 +12,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -26,7 +27,8 @@ const MaterialComponents = [
   MatCheckboxModule,
   MatSelectModule,
   MatStepperModule,
-  MatGridListModule
+  MatGridListModule,
+  MatExpansionModule
 ]
 
 @NgModule({

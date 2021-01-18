@@ -8,9 +8,7 @@ export class Pet {
         public isdopted: boolean,
         public location: string,
         public image: any,
-        public details: string) 
-        {
-
-    }
+        public details: string
+        ) {}
 
 }

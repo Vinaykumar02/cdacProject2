@@ -7,6 +7,7 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-page.component';
+import {StepperComponent} from './stepper/stepper.component'
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path : 'pet_details',
     component : PetDetailsPageComponent
+  },
+  {
+    path : 'stepper',
+    component : StepperComponent
   },
   {
     path : '',
