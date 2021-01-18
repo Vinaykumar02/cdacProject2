@@ -18,7 +18,7 @@ export class UserService {
   postUserDetails (userData){
     return this._http.post<any>(this.baseUrl,userData)
   }
-  postUserAddress(userAddress){
-    return this._http.post<any>(this.baseUrl,userAddress)
+  postUserAddress(userAddress, adopterId){
+    return this._http.post<any>(`${this.baseUrl}/${adopterId}`, userAddress);
   }
 }

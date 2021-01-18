@@ -24,7 +24,6 @@
             </mat-form-field >
             <mat-form-field appearance="fill">
                 <mat-label>State</mat-label>
-                <!--  -->
                 <mat-select [(ngModel)]="addressData.state " name="state">
                   <mat-option *ngFor="let state of states" [value]="state">
                     {{state}}

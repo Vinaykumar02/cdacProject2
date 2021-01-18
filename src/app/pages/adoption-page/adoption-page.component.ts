@@ -12,7 +12,8 @@ import {UserService} from '../../service/user.service'
 })
 export class AdoptionPageComponent implements OnInit {
 
- 
+  petId = sessionStorage.getItem('petId');
+
   adoptionForm = new AdoptionModel(undefined, "name","adhaar",0,"mobile","email",false)
 
   constructor (private router: Router,private _userService : UserService) { }
@@ -26,10 +27,11 @@ export class AdoptionPageComponent implements OnInit {
     console.log("Adopted");
     // RouterLink="address"
     console.log(this.adoptionForm);
-    // this._userService.postUserDetails(this.adoptionForm).subscribe(result=>{
-    //   console.log(result);
-    //   this.router.navigate(['/address']);
-    // })
-    this.router.navigate(['/address']);
+    this._userService.postUserDetails(this.adoptionForm).subscribe(result=>{
+      console.log(result);
+      sessionStorage.setItem("adopterId", result);
+      this.router.navigate(['/address']);
+    })
+    // this.router.navigate(['/address']);
   }
 }

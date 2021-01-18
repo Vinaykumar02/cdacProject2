@@ -16,7 +16,7 @@ export class PostPageComponent implements OnInit {
   selectedFile: File = null;
   message: string = null;
   retrievedImage: any;
-  userId: number;
+  userId = sessionStorage.getItem('admin_id');
 
   petModel= new Pet(undefined,"","","",false,"","","");
   // petModel= new Pet("dog","pamerian","female",false,"pune","picture"," puppie");

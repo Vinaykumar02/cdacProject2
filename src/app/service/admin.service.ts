@@ -18,7 +18,7 @@ export class AdminService {
    return  this._http.post<any>(this.baseUrl, cred);
   }
 
-  postPetDetails(selectedFile: File, petData: Pet, userId:number): Observable<any>{
+  postPetDetails(selectedFile: File, petData: Pet, userId): Observable<any>{
     const uploadData = new FormData();
     uploadData.append("imageFile", selectedFile);
     uploadData.append("dtls",JSON.stringify(petData));

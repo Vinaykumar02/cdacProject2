@@ -1,4 +1,4 @@
-import { AdoptionModel } from './adoption-model';
+import { AdoptionModel } from '../../pojos/adoption-model';
 
 describe('AdoptionModel', () => {
   it('should create an instance', () => {
