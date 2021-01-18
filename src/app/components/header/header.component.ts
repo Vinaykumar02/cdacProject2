@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  sessionStatus=false
   constructor() { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('this.userName')){
+      this.sessionStatus=true;
+    }
+    console.log(this.sessionStatus);
+    console.log(sessionStorage.getItem('this.userName'));
+    
+    
   }
+  
 
 }
