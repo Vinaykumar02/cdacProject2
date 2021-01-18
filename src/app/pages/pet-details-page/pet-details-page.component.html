@@ -1,1 +1,42 @@
-<p>pet-details-page works!</p>
+<!-- <app-image-upload></app-image-upload>
+<mat-accordion class="example-headers-align" >
+    <mat-expansion-panel *ngFor="let item of collection" >
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-card class="image">{{item.image}}</mat-card>
+            </mat-panel-title>
+            <mat-panel-description>
+                <p>{{item.animal}}</p>
+                <p>{{item.breed}}</p>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <h5>{{item.gender}}</h5>
+        <h5>{{item.location}}</h5>
+        <p>{{item.details}}</p>
+        <mat-action-row>
+            <button mat-button color="primary" (click)="adopt()">Adopt</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion> -->
+<!-- <div class="a" fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh"> -->
+<!-- content here -->
+<div class="b" fxLayout="row wrap">
+    <!-- card list here -->
+    <div class="c" *ngFor="let item of collection" fxFlex="33" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100"
+        fxLayout="column" style="padding: 8px;">
+        <!-- material card here -->
+        <mat-card >
+            <img mat-card-image [src]="item.image" />
+            <mat-card-title> {{ item.animal }} </mat-card-title>
+            <mat-card-subtitle> {{ item.breed }} </mat-card-subtitle>
+            <mat-card-content> {{item.gender}} </mat-card-content>
+            <mat-card-content> {{item.location}} </mat-card-content>
+            <mat-card-content> {{item.details}} </mat-card-content>
+            <mat-card-footer>
+                <button fxFlex mat-flat-button color="primary" (click)="adopt()" class="btn">Adopt</button>
+            </mat-card-footer>
+        </mat-card>
+
+    </div>
+</div>
+<!-- </div> -->

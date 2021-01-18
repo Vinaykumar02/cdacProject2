@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import {AdoptionModel} from './adoption-model'
+import {AdoptionModel} from '../../pojos/adoption-model'
 import {UserService} from '../../service/user.service'
 // import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 

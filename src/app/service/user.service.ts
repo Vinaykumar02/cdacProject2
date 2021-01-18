@@ -9,6 +9,10 @@ export class UserService {
   url = " ";
   constructor(private _http : HttpClient) { }
 
+  getPetList(): Observable<any[]>{
+    return this._http.get<any[]>(this.url);
+   }
+
   postUserDetails (userData){
     return this._http.post<any>(this.url,userData)
   }
