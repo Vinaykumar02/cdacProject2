@@ -1,7 +1,9 @@
 .navbar{
     justify-content: space-between;
     background-color: rgb(111 0 0 / 24%);
-
+    /* position: fixed;
+    width: 100%;
+    z-index: 1; */
 }
 div.logo{
     color: #dc3545;

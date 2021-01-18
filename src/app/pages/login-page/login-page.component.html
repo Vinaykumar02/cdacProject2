@@ -1,3 +1,9 @@
+<div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong> Lgoin Failed!!</strong> You have entered wrong credentials. Please try again.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 <div fxLayoutAlign="center center"  fxFlexFill class="mainDiv">
     <mat-card fxFlex="30">
         <mat-toolbar color="primary" class="heading">Login Page</mat-toolbar>
@@ -5,12 +11,14 @@
             (ngSubmit)="onSubmit(loginForm)">
             <mat-form-field appearance="fill">
                 <mat-label>Username or Email ID</mat-label>
-                <input matInput name="userId"  ngModel>
+                <input matInput name="userId" ngModel required>
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <!-- <mat-error *ngIf="userId.invalid">{{getErrorMessage()}}</mat-error> -->
             </mat-form-field >
 
             <mat-form-field appearance="fill">
                 <mat-label>password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" name="pass" ngModel>
+                <input matInput [type]="hide ? 'password' : 'text'" name="pass" ngModel required>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

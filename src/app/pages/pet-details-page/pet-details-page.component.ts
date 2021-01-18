@@ -12,16 +12,16 @@ export class PetDetailsPageComponent implements OnInit {
 
   
   collection : Pet[] = [
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    new Pet("Dog","German","Male",false,"pune","picture 1"," puppie"),
-    new Pet("Cat","Ragdoll","female",false,"pune","picture 2"," kitty"),
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    new Pet("Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Dog","German","Male",false,"pune","picture 1"," puppie"),
+    new Pet(undefined, "Cat","Ragdoll","female",false,"pune","picture 2"," kitty"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
+    new Pet(undefined, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
   ];
 
   constructor(private _userService: UserService, private router: Router) { }

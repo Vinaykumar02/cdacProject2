@@ -1,5 +1,10 @@
+import { Optional } from "@angular/core";
+
 export class User{
     constructor(
-        public userName : string
+        @Optional() public id: number,
+        public userName : string,
+        public emailID : string,
+        public password : string
     ){}
 }

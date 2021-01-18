@@ -10,8 +10,9 @@ import {AddressDetails} from '../../pojos/address-details';
 })
 export class AddressPageComponent implements OnInit {
 
-  states = ['Maharastra', 'Chattishgarh', 'Gujrat'];
-  addressData = new AddressDetails("flatNumber","street","area","city","district","state","pincode")
+  states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chaattishgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh','Maharastra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajastahn', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttarakhand', 'Uttar Pradesh', 'West Bengal'];
+
+  addressData = new AddressDetails(undefined, "flatNumber","street","area","city","district","state","pincode")
 
   constructor(private _userService:UserService,private router:Router) { }
 
