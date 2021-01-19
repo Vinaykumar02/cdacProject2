@@ -1,7 +1,9 @@
+import { Optional } from "@angular/core";
+
 export class Pet {
 
     constructor(
-        // public id: number,
+        @Optional() public id: number,
         public animal: string,
         public breed: string,
         public gender: string,

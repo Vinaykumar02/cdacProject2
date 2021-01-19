@@ -8,9 +8,11 @@ import {AdminService} from '../../service/admin.service'
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-
+  
+  alert:boolean = false;
   hide:boolean = true;
   userName = " ";
+  userId : number;
  
   constructor(private _adminService : AdminService,private router:Router) { }
 
@@ -33,19 +35,37 @@ export class LoginPageComponent implements OnInit {
         sessionStorage.setItem('userName',myform.value.userId)
       sessionStorage.setItem('reload','true')
 
-        
-        this.router.navigate(['/']);
-        // this.router.navigate(['/']);
+    this._adminService.getLoginDetails(myform.value.userId).subscribe(data=>{
+         sessionStorage.setItem('admin_name',data.userName);
+         sessionStorage.setItem('admin_id',data.userId);
 
-        // window.location.reload()
-    //   }
+      // if(data.password == myform.value.pass)
+      // {
+      //   this.userName = data.userName;
+      //   this.userName=myform.value.userId
+        // sessionStorage.setItem('userName',myform.value.userId)
+        // sessionStorage.setItem('userName',myform.value.userId)
+        
+        // this.router.navigate(['/']);
+      //   this.router.navigate(['/']);
+
+      //    window.location.reload()
+      // }
     //   else{
     //   this.router.navigate(['/login'])
     // sessionStorage.setItem('userName','false')
-        // }
-    // })
+    //     }
+    })
     
 
   }
+
+  closeAlert(){
+    this.alert = false;
+  }
+
+  // getErrorMessage(){
+
+  // }
 
 }

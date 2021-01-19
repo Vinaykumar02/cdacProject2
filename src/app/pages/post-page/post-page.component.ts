@@ -16,10 +16,9 @@ export class PostPageComponent implements OnInit {
   selectedFile: File = null;
   message: string = null;
   retrievedImage: any;
-  // userId: number;
-  user : User=new User("");
+  userId = sessionStorage.getItem('admin_id');
 
-  petModel= new Pet("","","",false,"","","");
+  petModel= new Pet(undefined,"","","",false,"","","");
   // petModel= new Pet("dog","pamerian","female",false,"pune","picture"," puppie");
   constructor(private _adminService : AdminService,private router:Router) { }
 
@@ -43,9 +42,12 @@ export class PostPageComponent implements OnInit {
   onSubmit(myform : NgForm){
     console.log("new post submitted");
     console.log(this.petModel)
-     this._adminService.postPetDetails(this.selectedFile, this.petModel).subscribe(result=>{
+     this._adminService.postPetDetails(this.selectedFile, this.petModel, this.userId).subscribe(result=>{
        console.log(result);
        this.router.navigate(['/pet_details'])
+     }, error=>{
+
+      this.router.navigate(['/**'])
      })
 
   }

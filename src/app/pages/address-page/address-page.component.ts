@@ -10,8 +10,11 @@ import {AddressDetails} from '../../pojos/address-details';
 })
 export class AddressPageComponent implements OnInit {
 
-  states = ['Maharastra', 'Chattishgarh', 'Gujrat'];
-  addressData = new AddressDetails("flatNumber","street","area","city","district","state","pincode")
+  adopterId = sessionStorage.getItem('adopterId');
+
+  states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chaattishgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh','Maharastra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajastahn', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttarakhand', 'Uttar Pradesh', 'West Bengal'];
+
+  addressData = new AddressDetails(undefined, "flatNumber","street","area","city","district","state","pincode")
 
   constructor(private _userService:UserService,private router:Router) { }
 
@@ -21,8 +24,10 @@ export class AddressPageComponent implements OnInit {
   onSubmit(myform:NgForm){
     console.log("submitted");
     console.log(this.addressData);
-    this._userService.postUserAddress(this.addressData).subscribe(result=>{
+    this._userService.postUserAddress(this.addressData, this.adopterId).subscribe(result=>{
       console.log(result);
+      sessionStorage.removeItem('petId');
+      sessionStorage.removeItem('adopterId');
       this.router.navigate(['/'])
       
     })

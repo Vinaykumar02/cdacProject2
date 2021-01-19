@@ -6,17 +6,19 @@ import {Observable} from 'rxjs'
   providedIn: 'root'
 })
 export class UserService {
-  url = " ";
+  
+  baseUrl = 'http://localhost:8000/';
+  
   constructor(private _http : HttpClient) { }
 
   getPetList(): Observable<any[]>{
-    return this._http.get<any[]>(this.url);
+    return this._http.get<any[]>(this.baseUrl);
    }
 
   postUserDetails (userData){
-    return this._http.post<any>(this.url,userData)
+    return this._http.post<any>(this.baseUrl,userData)
   }
-  postUserAddress(userAddress){
-    return this._http.post<any>(this.url,userAddress)
+  postUserAddress(userAddress, adopterId){
+    return this._http.post<any>(`${this.baseUrl}/${adopterId}`, userAddress);
   }
 }
