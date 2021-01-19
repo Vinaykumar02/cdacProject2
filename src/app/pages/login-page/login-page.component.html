@@ -13,18 +13,19 @@
             
             <mat-form-field appearance="fill">
                 <mat-label>Username or Email ID</mat-label>
-                <input matInput name="userId" ngModel required>
+                <input matInput name="userId" #userId="ngModel" ngModel required>
                 <mat-icon matSuffix>perm_identity</mat-icon>
-                <!-- <mat-error *ngIf="userId.invalid">{{getErrorMessage()}}</mat-error> -->
+                <mat-error *ngIf="userId.errors.required">username or email id is required</mat-error>
             </mat-form-field >
 
             <mat-form-field appearance="fill">
                 <mat-label>password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" name="pass" ngModel required>
+                <input matInput [type]="hide ? 'password' : 'text'" name="pass" #pass="ngModel" ngModel required>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-error *ngIf="pass.errors.required">password is required</mat-error>
             </mat-form-field>
             <button mat-raised-button type="submit" color="primary">Login</button>
         </form>
