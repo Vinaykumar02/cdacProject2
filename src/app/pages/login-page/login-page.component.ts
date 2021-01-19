@@ -31,6 +31,8 @@ export class LoginPageComponent implements OnInit {
     //     this.userName = data.userName;
         this.userName=myform.value.userId
         sessionStorage.setItem('userName',myform.value.userId)
+      sessionStorage.setItem('reload','true')
+
         
         this.router.navigate(['/']);
         // this.router.navigate(['/']);

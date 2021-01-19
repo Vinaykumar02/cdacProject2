@@ -1,11 +1,38 @@
-<mat-toolbar class="navbar">
-    <div class="logo">Pet Shelter </div>
+<!-- <mat-toolbar class="navbar"> -->
+  <!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark pink ie-nav fixed-top" [containerInside]="false"> /-->
+     <!-- <div class="logo">Pet Shelter </div>
     <div>
       <span><a routerLink="">Home</a></span>
       <span *ngIf="!sessionStatus"><a routerLink="login">Login</a></span>
-      <span *ngIf="sessionStatus"><a routerLink="posts">Post</a></span>
+      <span *ngIf="sessionStatus"><a routerLink="posts">Post</a></span> -->
       <!-- <span><a routerLink="adopt">Adopt</a></span> -->
-      <span *ngIf="sessionStatus"><a routerLink="">Logout</a></span>
+       <!-- <span *ngIf="sessionStatus"><a routerLink="">Logout</a></span>
 
     </div>
-  </mat-toolbar>
+</mat-toolbar>   -->
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
+  <a class="navbar-brand" href="#"><strong>PET WEBZ</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+ 
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="!sessionStatus" >
+        <a class="nav-link"  routerLink="login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="sessionStatus">
+        <a class="nav-link" routerLink="posts">Post</a>
+      </li>
+      <li class="nav-item" *ngIf="sessionStatus">
+        <a class="nav-link" routerLink="">Logout</a>
+      </li>
+    </ul>
+  
+  </div>
+</nav>

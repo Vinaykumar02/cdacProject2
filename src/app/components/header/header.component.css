@@ -1,6 +1,8 @@
 .navbar{
     justify-content: space-between;
-    background-color: rgb(111 0 0 / 24%);
+    background-color: rgb(66, 148, 148);
+    padding-left: 10%;
+    height: auto;
 
 }
 div.logo{
@@ -9,6 +11,9 @@ div.logo{
 a{
     color: #dc3545;
 }
-span{
+.links{
     padding-right: 1rem;
 }
+.navbar-collapse{
+    flex-grow: 0;
+} 
