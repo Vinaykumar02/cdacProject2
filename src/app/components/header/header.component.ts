@@ -21,12 +21,12 @@ export class HeaderComponent implements OnInit{
    
     console.log(this.sessionStatus);
     console.log(sessionStorage.getItem('userName'));
-    if(sessionStorage.getItem('reload')!=='true'){
-      sessionStorage.removeItem('reload');
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/header']);
-  }); 
-  }
+  //   if(sessionStorage.getItem('reload')!=='true'){
+  //     sessionStorage.removeItem('reload');
+  //   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+  //     this.router.navigate(['/header']);
+  // }); 
+  // }
     
   }
   

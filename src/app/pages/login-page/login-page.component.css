@@ -5,6 +5,11 @@
 .loginForm{
     padding: 20px;
 }
+
 .heading{
     justify-content: center;
+}
+
+button{
+    margin-top : 1rem;
 }

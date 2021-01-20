@@ -1,39 +1,51 @@
 <div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
     <mat-card fxFlex="75">
-        <mat-toolbar color="primary" class="heading">{{petId}}'s Adoption Form</mat-toolbar>
-
-        <form fxLayoutAlign="stretch" fxLayout="column" novalidate #adoptionForm="ngForm"
-            (ngSubmit)="onSubmit(adoptionForm)" class="adoptionForm">
+        <mat-toolbar color="primary" class="heading">Adoption Form</mat-toolbar>
+  
+        <form fxLayoutAlign="stretch" fxLayout="column" novalidate 
+            (ngSubmit)="onSubmit()" class="adoptionForm" [formGroup]="adoptionForm">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput [(ngModel)]="adoptionForm.name" name="userName" >
-            </mat-form-field>
-
+                <input matInput formControlName="name" >
+            <!-- <mat-error *ngIf="name.hasError('required')">You must enter a value</mat-error> -->
+            <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">{{getNameErrorMsg()}}</mat-error>
+        </mat-form-field>
+         
+  
             <mat-form-field appearance="fill">
                 <mat-label>Adhaar Number</mat-label>
-                <input matInput [(ngModel)]="adoptionForm.adhaarNumber" name="adhaar" >
-            </mat-form-field>
-      
+                <input matInput formControlName="aadharNumber" >
+            <!-- <mat-error *ngIf="adhaarNumber.hasError('required')">You must enter a value</mat-error> -->
+            <mat-error *ngIf="aadharNumber.invalid && (aadharNumber.dirty || aadharNumber.touched)">{{getAdhaarNumberErrorMsg()}}</mat-error>
+          </mat-form-field>
+          
+  
             <mat-form-field appearance="fill">
                 <mat-label>Age</mat-label>
-                <input matInput type="number" [(ngModel)]="adoptionForm.age" name="age"  >
-            </mat-form-field>
-
+                <input matInput type="number" formControlName="age"  >
+            <!-- <mat-error *ngIf="age.hasError('required')">You must enter a value</mat-error> -->
+          <mat-error *ngIf="age.invalid && (age.dirty || age.touched)">{{getAgeErrorMsg()}}</mat-error>
+      </mat-form-field>
+  
             <mat-form-field appearance="fill">
                 <mat-label>Mobile Number</mat-label>
-                <input matInput type="tel" [(ngModel)]="adoptionForm.mobile" name="mobile"  >
-            </mat-form-field>
-
+                <input matInput type="tel" formControlName="phoneNumber"  >
+            <!-- <mat-error *ngIf="phoneNumber.hasError('required')">You must enter a value</mat-error> -->
+             <mat-error *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">{{getPhoneNumberErrorMsg()}}</mat-error>
+          </mat-form-field>
+  
             <mat-form-field appearance="fill">
                 <mat-label>Email Id</mat-label>
-                <input matInput type="email" [(ngModel)]="adoptionForm.email" name="email" >
-            </mat-form-field>
-            <!-- [(ngModel)]="adoptionForm.petitionSigned" name="petetion" -->
-            <mat-checkbox  >Petition</mat-checkbox>
-         
-        
-            <button mat-raised-button type="submit" color="primary">Next</button>
-
+                <input matInput type="email" formControlName="emailId" >
+            <!-- <mat-error *ngIf="emailId.hasError('required')">You must enter a value</mat-error> -->
+            <mat-error *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)">{{getEmailErrorMsg()}}</mat-error>
+          </mat-form-field>
+          
+            <!-- <mat-form-field appearance="fill"> -->
+            <mat-checkbox formControlName="petitionSigned" >Sign Petition</mat-checkbox>
+            <mat-error *ngIf="petitionSigned.hasError('required')">You must sign the petetion</mat-error>
+        <!-- </mat-form-field> -->
+            <button mat-raised-button type="submit" color="primary" [disabled]="!(petitionSigned.value) || !(adoptionForm.valid)">Next</button>
         </form>
     </mat-card>
-</div>
+  </div>

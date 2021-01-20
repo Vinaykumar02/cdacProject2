@@ -1,56 +1,57 @@
 <div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
     <mat-card fxFlex="50">
-        <mat-toolbar color="primary" class="heading">Fill the form</mat-toolbar>
-        <form fxLayoutAlign="stretch" fxLayout="column" class="postForm" novalidate #postForm="ngForm"
-            (ngSubmit)="onSubmit(postForm)">
-            <mat-form-field appearance="fill">
-                <mat-label>Animal</mat-label>
-                <input matInput [(ngModel)]="petModel.animal" name="animal">
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Breed</mat-label>
-                <input matInput [(ngModel)]="petModel.breed" name="breed">
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Gender</mat-label>
-                <input matInput [(ngModel)]="petModel.gender" name="gender">
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Location</mat-label>
-                <input matInput [(ngModel)]="petModel.location" name="location">
-            </mat-form-field>
-            <!-- <mat-form-field appearance="fill">
-                <mat-label>Image</mat-label>
-                <input matInput [(ngModel)]="petModel.image" name="image">
-            </mat-form-field > -->
-            
-            <mat-form-field appearance="fill">
-                <mat-label>Details</mat-label>
-                <input matInput [(ngModel)]="petModel.details" name="details">
-            </mat-form-field>
-
-            <mat-form-field>
-                <!-- <mat-label>Choose File</mat-label> -->
-                <div>
-                    <mat-toolbar>
-
-                        <!-- Display files names -->
-                        <input matInput [(ngModel)]="fileAttr" readonly name="name" />
-
-                        <!-- Browse Button -->
-                        <button mat-flat-button color="primary">
-                            Browse File
-                        </button>
-                    </mat-toolbar>
-
-                    <!-- Fetch selected filed on change -->
-                    <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile"
-                         accept="image/*" />
-                </div>
-            </mat-form-field>
-
-            <button mat-raised-button type="submit" color="primary">Post</button>
-        </form>
-
+      <mat-toolbar color="primary" class="heading">Fill the form</mat-toolbar>
+  
+      <form fxLayoutAlign="stretch" fxLayout="column" class="postForm" novalidate [formGroup]="postForm"
+        (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Animal</mat-label>
+          <input matInput formControlName="animal">
+          <mat-error *ngIf="animal.hasError('required')">You must enter a value</mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Breed</mat-label>
+          <input matInput formControlName="breed">
+        </mat-form-field> -->
+        <mat-form-field appearance="fill">
+          <mat-label>Gender</mat-label>
+          <input matInput formControlName="gender">
+          <mat-error *ngIf="gender.hasError('required')">You must enter a value</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city">
+          <mat-error *ngIf="city.hasError('required')">You must enter a value</mat-error>
+        </mat-form-field>
+  
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Details</mat-label>
+          <input matInput formControlName="details">
+          <mat-error *ngIf="details.hasError('required')">You must enter a value</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <div>
+            <mat-toolbar>
+  
+              <!-- Display files names -->
+              <input matInput [(value)]="fileAttr" readonly name="name" />
+  
+              <!-- Browse Button -->
+              <button mat-flat-button color="primary">
+                Browse File
+              </button>
+            </mat-toolbar>
+  
+            <!-- Fetch selected filed on change -->
+            <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile"
+              accept="image/*" />
+          </div>
+        </mat-form-field>
+  
+        <button mat-raised-button type="submit" color="primary" [disabled]="!postForm.valid">Post</button>
+      </form>
+  
     </mat-card>
-</div>
+  </div>
