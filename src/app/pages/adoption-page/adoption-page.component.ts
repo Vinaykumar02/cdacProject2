@@ -96,7 +96,7 @@ export class AdoptionPageComponent implements OnInit {
     console.log(this.adoptionForm);
     
     console.log(this.adoptionForm.value);
-    this._userService.postUserDetails(this.adoptionForm.value).subscribe(result=>{
+    this._userService.postUserDetails(this.adoptionForm.value, this.petId).subscribe(result=>{
       console.log(result);
       sessionStorage.setItem("adopterId", result.id);
       this.router.navigate(['/address']);

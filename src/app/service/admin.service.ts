@@ -8,8 +8,8 @@ import { Pet } from '../pojos/pet';
 })
 export class AdminService {
 
-  url = 'http://localhost:8000';
-  baseUrl = 'http://localhost:8000';
+  url = 'http://localhost:8080';
+  baseUrl = 'http://localhost:8080';
   
   constructor(private _http: HttpClient) { 
 

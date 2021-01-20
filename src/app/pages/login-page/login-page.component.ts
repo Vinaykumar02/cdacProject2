@@ -27,10 +27,11 @@ export class LoginPageComponent implements OnInit {
     console.log(myform.value.password)
 
       this._adminService.getLoginDetails(myform.value).subscribe(data=>{
+        console.log(data.userName);
+        console.log(data.id);
         sessionStorage.setItem('userName',data.userName);
         sessionStorage.setItem('admin_id',data.id);
-     console.log(data.userName);
-     console.log(data.id);
+    
 
     
         
