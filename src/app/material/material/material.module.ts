@@ -13,7 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatDialogModule} from '@angular/material/dialog';
 const MaterialComponents = [
   MatButtonModule,
   MatIconModule,
@@ -28,7 +28,8 @@ const MaterialComponents = [
   MatSelectModule,
   MatStepperModule,
   MatGridListModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatDialogModule
 ]
 
 @NgModule({

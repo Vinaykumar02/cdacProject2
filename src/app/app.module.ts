@@ -21,6 +21,7 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import {HttpClientModule} from '@angular/common/http';
 import { StepperComponent } from './stepper/stepper.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { LogoutComponent } from './pages/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FooterComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    StepperComponent
+    StepperComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

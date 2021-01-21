@@ -9,11 +9,16 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-page.component';
 import {StepperComponent} from './stepper/stepper.component'
 import { HeaderComponent } from './components/header/header.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 const routes: Routes = [
   {
     path : 'login',
     component : LoginPageComponent
+  },
+  {
+    path : 'logout',
+    component : LogoutComponent
   },
   {
     path : 'adopt',

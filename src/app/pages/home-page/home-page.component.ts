@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit {
  
   
   ngOnInit(): void {
+    
 
     // this.reloadPage()
     // let home = window.location.toString()

@@ -20,9 +20,19 @@
 </mat-accordion> -->
 <!-- <div class="a" fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh"> -->
 <!-- content here -->
+<div class ="filter">
+    <strong>Filter:</strong> Animal
+    <select [(ngModel)]="selectedAnimal" (change)="valueSelected()">
+     <option *ngFor="let item of animalName">{{ item }}</option>
+      </select>
+      City
+      <select [(ngModel)]="selectedLocation" (change)="valueSelected1()">
+        <option *ngFor="let item of cityName">{{ item }}</option>
+         </select>
+</div>
 <div class="b" fxLayout="row wrap">
     <!-- card list here -->
-    <div class="c" *ngFor="let item of collection" fxFlex="33" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100"
+    <div class="c" *ngFor="let item of collectionCopy" fxFlex="33" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100"
         fxLayout="column" style="padding: 8px;">
         <!-- material card here -->
         <mat-card >

@@ -15,6 +15,15 @@ export class UserService {
     return this._http.get<any[]>(this.baseUrl);
    }
 
+  getPetCity() : Observable<any[]>{
+    return this._http.get<any[]>(this.baseUrl);
+  
+  }
+  getAnimalName() : Observable<any[]>{
+    return this._http.get<any[]>(this.baseUrl);
+  
+  }
+
   postUserDetails (userData){
     return this._http.post<any>(this.baseUrl,userData)
   }

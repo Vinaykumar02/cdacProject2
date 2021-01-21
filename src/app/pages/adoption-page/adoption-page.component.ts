@@ -27,11 +27,11 @@ export class AdoptionPageComponent implements OnInit {
     console.log("Adopted");
     // RouterLink="address"
     console.log(this.adoptionForm);
-    this._userService.postUserDetails(this.adoptionForm).subscribe(result=>{
-      console.log(result);
-      sessionStorage.setItem("adopterId", result);
+    // this._userService.postUserDetails(this.adoptionForm).subscribe(result=>{
+    //   console.log(result);
+      // sessionStorage.setItem("adopterId", result);
       this.router.navigate(['/address']);
-    })
+    // })
     // this.router.navigate(['/address']);
   }
 }
