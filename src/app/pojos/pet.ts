@@ -5,12 +5,13 @@ export class Pet {
     constructor(
         @Optional() public id: number,
         public animal: string,
-        public breed: string,
+        // @Optional() public breed: string,
         public gender: string,
-        public isdopted: boolean,
-        public location: string,
+        public city: string,
+        public details: string,
+        public adopted: boolean,
         public image: any,
-        public details: string
+        public imageContentType: string
         ) {}
 
 }

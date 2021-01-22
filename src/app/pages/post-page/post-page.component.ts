@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
 import {Pet} from '../../pojos/pet'
@@ -18,16 +18,28 @@ export class PostPageComponent implements OnInit {
   retrievedImage: any;
   userId = sessionStorage.getItem('admin_id');
 
-  petModel= new Pet(undefined,"","","",false,"","","");
+  petModel= new Pet(undefined,"","","","",false,"","");
   // petModel= new Pet("dog","pamerian","female",false,"pune","picture"," puppie");
-  constructor(private _adminService : AdminService,private router:Router) { }
+  constructor(private _adminService : AdminService,private router:Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  postForm = this.fb.group({
+     animal: ['', Validators.required],
+     gender: ['', Validators.required],
+     city: ['', Validators.required],
+     details: ['', Validators.required],
+     adopted: ['', Validators.required],
+     image: ['', Validators.required],
+     imageContentType: ['', Validators.required]
+  })
+  
+
   uploadFileEvt(evt){
     if (evt.target.files && evt.target.files[0]) {
-      this.fileAttr = '';
+      console.log(evt.target.files[0].name);
+      this.fileAttr = evt.target.files[0].name;
       // Array.from(evt.target.files).forEach((file: File) => {
       //   this.fileAttr += file.name + ' - ';
       // });
@@ -39,10 +51,10 @@ export class PostPageComponent implements OnInit {
   }
 }
 
-  onSubmit(myform : NgForm){
+  onSubmit(){
     console.log("new post submitted");
-    console.log(this.petModel)
-     this._adminService.postPetDetails(this.selectedFile, this.petModel, this.userId).subscribe(result=>{
+    console.log(this.postForm)
+     this._adminService.postPetDetails(this.selectedFile, this.postForm, this.userId).subscribe(result=>{
        console.log(result);
        this.router.navigate(['/pet_details'])
      }, error=>{
@@ -51,4 +63,23 @@ export class PostPageComponent implements OnInit {
      })
 
   }
+
+  get animal(){
+    return this.postForm.get('animal')
+  }
+
+  get gender(){
+    return this.postForm.get('gender')
+  }
+
+  get city(){
+    return this.postForm.get('city')
+  }
+  get details(){
+    return this.postForm.get('details')
+  }
+  get adopted(){
+    return this.postForm.get('adopted')
+  }
+
 }

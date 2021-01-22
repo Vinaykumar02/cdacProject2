@@ -11,7 +11,7 @@ export class LoginPageComponent implements OnInit {
   
   alert:boolean = false;
   hide:boolean = true;
-  userName = " ";
+  userName = "";
   userId : number;
  
   constructor(private _adminService : AdminService,private router:Router) { }
@@ -21,40 +21,25 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(myform:NgForm)
   {
-    // this.login.getLoginCredential();
     console.log("form submited")
     console.log(myform.value)
-    console.log(myform.value.userId)
-    console.log(myform.value.pass)
-    // invalide credential is suppose to be handle
-    // this._adminService.getLoginDetails(myform.value.userId).subscribe(data=>{
-    //   if(data.password == myform.value.pass)
-    //   {
-    //     this.userName = data.userName;
-        this.userName=myform.value.userId
-        sessionStorage.setItem('userName',myform.value.userId)
-      sessionStorage.setItem('reload','true')
+    console.log(myform.value.emailId)
+    console.log(myform.value.password)
 
-    this._adminService.getLoginDetails(myform.value.userId).subscribe(data=>{
-         sessionStorage.setItem('admin_name',data.userName);
-         sessionStorage.setItem('admin_id',data.userId);
+      this._adminService.getLoginDetails(myform.value).subscribe(data=>{
+        console.log(data.userName);
+        console.log(data.id);
+        sessionStorage.setItem('userName',data.userName);
+        sessionStorage.setItem('admin_id',data.id);
+    
 
-      // if(data.password == myform.value.pass)
-      // {
-      //   this.userName = data.userName;
-      //   this.userName=myform.value.userId
-        // sessionStorage.setItem('userName',myform.value.userId)
-        // sessionStorage.setItem('userName',myform.value.userId)
+    
         
-        // this.router.navigate(['/']);
-      //   this.router.navigate(['/']);
-
-      //    window.location.reload()
-      // }
-    //   else{
-    //   this.router.navigate(['/login'])
-    // sessionStorage.setItem('userName','false')
-    //     }
+        this.router.navigate(['/']);
+  
+    }, error=>{
+      console.log(error);
+      this.alert = true;
     })
     
 
@@ -64,8 +49,6 @@ export class LoginPageComponent implements OnInit {
     this.alert = false;
   }
 
-  // getErrorMessage(){
-
-  // }
+ 
 
 }

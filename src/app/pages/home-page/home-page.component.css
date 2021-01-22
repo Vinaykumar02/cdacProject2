@@ -1,16 +1,36 @@
 .bg {
-    background-image: url("../../../assets/dog.jpeg");
+    background-image: url("../../../assets/adoption.gif");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgb(25, 31, 49);
   }
-
+.adjust{
+  height: 23%;
+}
 .content{
+  margin-left: 25%;
+    display: block;
     color: whitesmoke;
-    max-width: 250px;
-    max-height: 50px;
-    padding: 15px;
+    max-width: 270px;
+    /* max-height: 50px; */
+    padding: 30px 20px;
+    background-color: rgb(78, 68, 70);
+    border: 1px solid orangered;
+    /* text-shadow: 5px 8px 1px rgba(0,0,0,.4); */
+    /* margin-top: 30%; */
     /* margin: auto; */
     /* align-content: center; */
 }
+strong{
+  text-shadow: 5px 8px 1px rgba(0,0,0,.4);
+
+}
+/* #div1:hover {
+  /* animation-name: content; */
+  /* animation-duration: 0.75s; */
+  animation-timing-function: linear;
+  /* animation-iteration-count: 1; */
+
+/* } */ 
