@@ -22,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { StepperComponent } from './stepper/stepper.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { PostEditDeletePageComponent } from './pages/post-edit-delete-page/post-edit-delete-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
     HeaderComponent,
     PageNotFoundComponent,
     StepperComponent,
-    LogoutComponent
+    LogoutComponent,
+    PostEditDeletePageComponent
   ],
   imports: [
     BrowserModule,

@@ -38,6 +38,31 @@ export class AdminService {
   //   // return this._http.post<any>(this.url, petData)
     
   // }
+  getPetById(petId: string): Observable<Pet> {
+    return this._http.get<Pet>(this.baseUrl + "/" + petId);
+  }
+
+  updatePet(pet: Pet): Observable<any> {
+    // let httpHeaders = new HttpHeaders({
+    //     'Content-Type': 'application/json'
+    // });
+    return this._http.put<Pet>(this.baseUrl + "/" + pet.id, pet); 
+    // {
+    //     headers: httpHeaders,
+    //     observe: 'response'
+    // }
+    // ).pipe(
+    //     map(res => res.status),
+    //     catchError(this.handleError)
+    // );
+}
+  deletePetById(petId: string): Observable<number> {
+    return this._http.delete<number>(this.baseUrl + "/" + petId);
+    // .pipe(
+        // tap(status => console.log("status: " + status)),
+        // catchError(this.handleError)
+    // );
+}
   
   
 }

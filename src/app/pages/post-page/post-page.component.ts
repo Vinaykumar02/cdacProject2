@@ -30,9 +30,9 @@ export class PostPageComponent implements OnInit {
      gender: ['', Validators.required],
      city: ['', Validators.required],
      details: ['', Validators.required],
-     adopted: ['', Validators.required],
-     image: ['', Validators.required],
-     imageContentType: ['', Validators.required]
+    //  adopted: ['', Validators.required],
+    //  image: ['', Validators.required],
+    //  imageContentType: ['', Validators.required]
   })
   
 
@@ -40,6 +40,8 @@ export class PostPageComponent implements OnInit {
     if (evt.target.files && evt.target.files[0]) {
       console.log(evt.target.files[0].name);
       this.fileAttr = evt.target.files[0].name;
+      console.log(this.fileAttr);
+      
       // Array.from(evt.target.files).forEach((file: File) => {
       //   this.fileAttr += file.name + ' - ';
       // });
@@ -53,14 +55,14 @@ export class PostPageComponent implements OnInit {
 
   onSubmit(){
     console.log("new post submitted");
-    console.log(this.postForm)
-     this._adminService.postPetDetails(this.selectedFile, this.postForm, this.userId).subscribe(result=>{
-       console.log(result);
-       this.router.navigate(['/pet_details'])
-     }, error=>{
+    console.log(this.postForm.value,this.selectedFile)
+    //  this._adminService.postPetDetails(this.selectedFile, this.postForm, this.userId).subscribe(result=>{
+    //    console.log(result);
+    //    this.router.navigate(['/pet_details'])
+    //  }, error=>{
 
-      this.router.navigate(['/**'])
-     })
+    //   this.router.navigate(['/**'])
+    //  })
 
   }
 

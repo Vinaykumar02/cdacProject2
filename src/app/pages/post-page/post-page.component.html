@@ -50,8 +50,10 @@
           </div>
         </mat-form-field>
   
-        <button mat-raised-button type="submit" color="primary" [disabled]="!postForm.valid">Post</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!postForm.valid && !fileInput.valid">Post</button>
       </form>
   
     </mat-card>
   </div>
+  <!-- <app-post-edit-delete-page></app-post-edit-delete-page> -->
+  

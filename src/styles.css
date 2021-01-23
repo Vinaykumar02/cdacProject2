@@ -2,7 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; padding: 0;
-         background-color: #8267541a;
+         /* background-color: #8267541a; */
+    background-color: rgb(25, 31, 49) !important;
+
 }
 
 html, body { height: 100%; }

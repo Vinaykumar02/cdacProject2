@@ -16,21 +16,24 @@
     max-width: 270px;
     /* max-height: 50px; */
     padding: 30px 20px;
-    background-color: rgb(78, 68, 70);
-    border: 1px solid orangered;
+    background-color: #595971;
+    border: 1px solid rgb(202, 173, 162);
     /* text-shadow: 5px 8px 1px rgba(0,0,0,.4); */
     /* margin-top: 30%; */
     /* margin: auto; */
     /* align-content: center; */
+    /* animation-name: divHover;= */
+    box-shadow: 0px 0px 15px rgba(255, 16, 16, 0.911);
+    
 }
 strong{
   text-shadow: 5px 8px 1px rgba(0,0,0,.4);
 
 }
-/* #div1:hover {
+  /* divHover:hover {
   /* animation-name: content; */
-  /* animation-duration: 0.75s; */
+  /* animation-duration: 0.75s;
   animation-timing-function: linear;
-  /* animation-iteration-count: 1; */
+  animation-iteration-count: 1;
 
-/* } */ 
+}   */

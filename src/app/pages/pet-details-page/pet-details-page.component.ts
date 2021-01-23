@@ -10,13 +10,13 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class PetDetailsPageComponent implements OnInit {
 
-  animalName =['Horse','Dog','Cat']
+  animalName =['Horse','Dog','Cat','']
   cityName = ['pune','Raipur']
   collectionCopy : Pet[] = []
   collection : Pet[] = [
-    // new Pet(1, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
-    // new Pet(2, "Dog","German","Male",false,"pune","picture 1"," puppie"),
-    // new Pet(3, "Cat","Ragdoll","female",false,"pune","picture 2"," kitty"),
+    new Pet(1, "Horse","Male","pune","The one who run fast",false,"picture 1","jpg"),
+    new Pet(2, "Dog","Male","pune"," puppie",false,"picture 3","jpg"),
+    new Pet(3, "Cat","female","pune"," kitty",false,"picture 1","jpg")
     // new Pet(5, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
     // new Pet(6, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
     // new Pet(9, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
@@ -29,14 +29,13 @@ export class PetDetailsPageComponent implements OnInit {
   constructor(private _userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this._userService.getPetList().subscribe(result=>{
-      console.log(result);
-      this.collection = result;
-    })
+    // this._userService.getPetList().subscribe(result=>{
+    //   console.log(result);
+    //   this.collection = result;
+    // })
      this.collectionCopy = this.collection
     // this.animalName=this._userService.getAnimalName().subscribe(result=>{
     //   console.log(result);
-      
     // })
     // this.cityName = this._userService.getPetCity().subscribe(result=>{
 
