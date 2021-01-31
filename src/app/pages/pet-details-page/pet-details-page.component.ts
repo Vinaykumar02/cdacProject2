@@ -11,13 +11,14 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class PetDetailsPageComponent implements OnInit {
 
+  userId = sessionStorage.getItem('admin_id') || null;
   animalName =['Horse','Dog','Cat','']
   cityName = ['pune','Raipur']
   collectionCopy : Pet[] = []
   collection : Pet[] = [
-    new Pet(1, "Horse","Male","pune","The one who run fast",false,"picture 1","jpg"),
-    new Pet(2, "Dog","Male","pune"," puppie",false,"picture 3","jpg"),
-    new Pet(3, "Cat","female","pune"," kitty",false,"picture 1","jpg")
+    // new Pet(1, "Horse","Male","pune","The one who run fast",false,"picture 1","jpg"),
+    // new Pet(2, "Dog","Male","pune"," puppie",false,"picture 3","jpg"),
+    // new Pet(3, "Cat","female","pune"," kitty",false,"picture 1","jpg")
     // new Pet(5, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
     // new Pet(6, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
     // new Pet(9, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
@@ -30,20 +31,18 @@ export class PetDetailsPageComponent implements OnInit {
   constructor(private _adminService: AdminService, private _userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    // this._userService.getPetList().subscribe(result=>{
-    //   console.log(result);
-    //   this.collection = result;
-    //   this.collectionCopy = this.collection
-    // })
-    
-    
+    this._userService.getPetList().subscribe(result=>{
+      console.log(result);
+      this.collection = result;
+      this.collectionCopy = this.collection
+    })  
   }
 
-  adopt(id){
-    console.log(id);
-    sessionStorage.setItem('petId',id);
-    this.router.navigate(['/adopt']);
-  }
+  // adopt(id){
+  //   console.log(id);
+  //   sessionStorage.setItem('petId',id);
+  //   this.router.navigate(['/adopt']);
+  // }
 
   // updatePetDetails(petId: string) {
 	// 	this._adminService.getPetById(petId)
@@ -68,7 +67,7 @@ export class PetDetailsPageComponent implements OnInit {
   public selectedAnimal;
   public valueSelected() {
     this.collectionCopy   = this.collection.filter(
-      item => item.animal=== this.selectedAnimal
+      item => item.animal === this.selectedAnimal
     );}
   public selectedLocation;
   public valueSelected1(){

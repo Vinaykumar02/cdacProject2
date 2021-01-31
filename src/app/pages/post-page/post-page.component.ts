@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
-import {Pet} from '../../pojos/pet'
-import { User } from '../../pojos/user';
+// import {Pet} from '../../pojos/pet'
+// import { User } from '../../pojos/user';
 
 @Component({
   selector: 'app-post-page',
@@ -14,11 +14,11 @@ export class PostPageComponent implements OnInit {
 
   fileAttr = "Choose File"
   selectedFile: File = null;
-  message: string = null;
-  retrievedImage: any;
+  // message: string = null;
+  // retrievedImage: any;
   userId = sessionStorage.getItem('admin_id');
 
-  petModel= new Pet(undefined,"","","","",false,"","");
+  // petModel= new Pet(undefined,"","","","",false,"","");
   postForm: any;
   // petModel= new Pet("dog","pamerian","female",false,"pune","picture"," puppie");
   constructor(private _adminService : AdminService,private router:Router, private fb: FormBuilder) { }
@@ -59,7 +59,7 @@ export class PostPageComponent implements OnInit {
   onSubmit(){
     console.log("new post submitted");
     console.log(this.postForm.value,this.selectedFile)
-     this._adminService.postPetDetails(this.selectedFile, this.postForm.value, this.userId).subscribe(result=>{
+     this._adminService.postPetDetails(this.selectedFile, this.postForm.value).subscribe(result=>{
        console.log(result);
        this.router.navigate(['/pet_details'])
      }, error=>{

@@ -99,11 +99,11 @@ export class AdoptionPageComponent implements OnInit {
       // sessionStorage.setItem("adopterId", result);
     
     console.log(this.adoptionForm.value);
-    // this._userService.postUserDetails(this.adoptionForm.value, this.petId).subscribe(result=>{
-    //   console.log(result);
-    //   sessionStorage.setItem("adopterId", result.id);
-    //   this.router.navigate(['/address', 'adopterId']);
-    // })
-      this.router.navigate(['/address', '2']);
+    this._userService.postUserDetails(this.adoptionForm.value, this.petId).subscribe(result=>{
+      console.log(result);
+      // sessionStorage.setItem("adopterId", result.id);
+      this.router.navigate(['/address', result.id]);
+    })
+      // this.router.navigate(['/address', '2']);
   }
 }
