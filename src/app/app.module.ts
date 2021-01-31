@@ -23,6 +23,7 @@ import { StepperComponent } from './stepper/stepper.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { PostEditDeletePageComponent } from './pages/post-edit-delete-page/post-edit-delete-page.component';
+import { DialogAdoptionComponent } from './pages/dialog-adoption/dialog-adoption.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,12 @@ import { PostEditDeletePageComponent } from './pages/post-edit-delete-page/post-
     PageNotFoundComponent,
     StepperComponent,
     LogoutComponent,
-    PostEditDeletePageComponent
+    PostEditDeletePageComponent,
+    DialogAdoptionComponent
+  ],
+  entryComponents: [
+    DialogAdoptionComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -53,6 +59,7 @@ import { PostEditDeletePageComponent } from './pages/post-edit-delete-page/post-
     MatExpansionModule
     
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

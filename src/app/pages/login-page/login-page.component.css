@@ -1,5 +1,6 @@
 .mainDiv mat-card{
     padding: 0px;
+
 }
 
 .loginForm{
@@ -9,8 +10,27 @@
 
 .heading{
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 button{
     margin-top : 1rem;
+}
+.cattygif{
+    background-image: url("../../../assets/catty.gif") !important;
+    display: block;
+    width:250px;
+    height: 250px;
+    background-position: center;
+    transform: translate(120px,50px);
+    animation-name: stop;
+    
+    
+}
+.stop{
+    animation-duration:1s;
+}
+.loginPage{
+    height: 100%;
 }
