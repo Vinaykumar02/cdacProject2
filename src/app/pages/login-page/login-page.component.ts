@@ -31,6 +31,7 @@ export class LoginPageComponent implements OnInit {
         console.log(data.id);
         sessionStorage.setItem('userName',data.userName);
         sessionStorage.setItem('admin_id',data.id);
+        window.location.reload(true);
     
 
     

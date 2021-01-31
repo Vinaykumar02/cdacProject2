@@ -29,7 +29,7 @@
         <a class="nav-link"  routerLink="login">Login</a>
       </li>
       <li class="nav-item" *ngIf="sessionStatus">
-        <a class="nav-link" routerLink="posts">Post</a>
+        <a class="nav-link" routerLink="['/posts', {{adminId}}]">Post</a>
       </li>
       <li class="nav-item" *ngIf="sessionStatus">
         <a class="nav-link" routerLink="logout">Logout</a>

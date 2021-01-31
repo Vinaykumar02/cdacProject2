@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pet } from 'src/app/pojos/pet';
+import { AdminService } from 'src/app/service/admin.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -26,23 +27,14 @@ export class PetDetailsPageComponent implements OnInit {
     // new Pet(21, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
   ];
 
-  constructor(private _userService: UserService, private router: Router) { }
+  constructor(private _adminService: AdminService, private _userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     // this._userService.getPetList().subscribe(result=>{
     //   console.log(result);
     //   this.collection = result;
+    //   this.collectionCopy = this.collection
     // })
-     this.collectionCopy = this.collection
-    // this.animalName=this._userService.getAnimalName().subscribe(result=>{
-    //   console.log(result);
-    // })
-    // this.cityName = this._userService.getPetCity().subscribe(result=>{
-
-    //   console.log(result);
-      
-    // })
-    // console.log(this.collectionCopy);
     
     
   }
@@ -52,6 +44,26 @@ export class PetDetailsPageComponent implements OnInit {
     sessionStorage.setItem('petId',id);
     this.router.navigate(['/adopt']);
   }
+
+  // updatePetDetails(petId: string) {
+	// 	this._adminService.getPetById(petId)
+	// 		.subscribe(result => {
+  //       // this.petIdToBeUpdated = result;
+	// 			// this.postForm.setValue({animal:result.animal,gender:result.gender,city:result.city,details:result.details,adopted:result.adopted})
+				
+	// 		})
+  // }
+
+  deletePetDetails(petId: string) {
+		this._adminService.deletePetById(petId).subscribe(successCode => {
+				//this.statusCode = successCode;
+				//Expecting success code 204 from server
+        // this.statusCode = 204;
+        console.log(successCode);
+        
+				// this.getAllPetDetails();
+			})
+	}
 
   public selectedAnimal;
   public valueSelected() {

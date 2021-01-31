@@ -1,5 +1,5 @@
 <div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
-    <mat-card fxFlex="75">
+    <mat-card fxFlex="50">
         <mat-toolbar color="primary" class="heading">Adoption Form</mat-toolbar>
   
         <form fxLayoutAlign="stretch" fxLayout="column" novalidate 
@@ -36,9 +36,9 @@
   
             <mat-form-field appearance="fill">
                 <mat-label>Email Id</mat-label>
-                <input matInput type="email" formControlName="emailId" >
+                <input matInput type="email" formControlName="emaild" >
             <!-- <mat-error *ngIf="emailId.hasError('required')">You must enter a value</mat-error> -->
-            <mat-error *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)">{{getEmailErrorMsg()}}</mat-error>
+            <mat-error *ngIf="emaild.invalid && (emaild.dirty || emaild.touched)">{{getEmailErrorMsg()}}</mat-error>
           </mat-form-field>
           
             <!-- <mat-form-field appearance="fill"> -->

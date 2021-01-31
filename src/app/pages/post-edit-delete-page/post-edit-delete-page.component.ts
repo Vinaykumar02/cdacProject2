@@ -36,29 +36,29 @@ export class PostEditDeletePageComponent implements OnInit {
        })
   }
 
-  onSubmit(){
-    if(this.petIdToBeUpdated !== null){
-      let pet = this.postForm.value
-      pet.id = this.petIdToBeUpdated
-      this._adminService.updatePet(pet)
-      .subscribe(result =>{
-        console.log(result);
+  // onSubmit(){
+  //   if(this.petIdToBeUpdated !== null){
+  //     let pet = this.postForm.value
+  //     pet.id = this.petIdToBeUpdated
+  //     this._adminService.updatePet(pet)
+  //     .subscribe(result =>{
+  //       console.log(result);
         
-        this.getAllPetDetails();
-      })
-    }
-    else{return;}
+  //       this.getAllPetDetails();
+  //     })
+  //   }
+  //   else{return;}
 
-  }
+  // }
 
-  loadPetToEdit(petId: string) {
-		this._adminService.getPetById(petId)
-			.subscribe(result => {
-        this.petIdToBeUpdated = result;
-				this.postForm.setValue({animal:result.animal,gender:result.gender,city:result.city,details:result.details,adopted:result.adopted})
+  // loadPetToEdit(petId: string) {
+	// 	this._adminService.getPetById(petId)
+	// 		.subscribe(result => {
+  //       this.petIdToBeUpdated = result;
+	// 			this.postForm.setValue({animal:result.animal,gender:result.gender,city:result.city,details:result.details,adopted:result.adopted})
 				
-			})
-  }
+	// 		})
+  // }
 
   deletePetDetails(petId: string) {
 		this._adminService.deletePetById(petId).subscribe(successCode => {

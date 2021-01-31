@@ -1,14 +1,15 @@
 .navbar{
     justify-content: space-between;
-    background-color: #595971 !important;
+    /* background-color: #595971 !important; */
+    background-color: #254117 !important;
     padding-left: 10%;
-    height: 12%;
-    font-family: "Brush Script MT", cursive;
+    height: 8%;
+    font-family: 'Times New Roman', Times, serif;
 
 }
 strong{
+    font-family: "Brush Script MT", cursive;
     font-size: xx-large;
-    color: rgb(255, 203, 203);
 
 }
 a{

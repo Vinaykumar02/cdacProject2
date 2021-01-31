@@ -19,11 +19,11 @@ export class AdoptionPageComponent implements OnInit {
   constructor (private fb: FormBuilder, private router: Router,private _userService : UserService) { }
 
   adoptionForm = this.fb.group({
-    name: ['', [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
+    name: ['', [Validators.required, Validators.pattern("^[a-zA-Z ]+$")]],
     aadharNumber: ['', [Validators.required, Validators.pattern("[0-9]{12}")]],
     age: [0, [Validators.required, Validators.min(12)]],
     phoneNumber: ['', [Validators.required, Validators.pattern("[0-9]{10}")]],
-    emailId : ['', [Validators.required, Validators.email]],
+    emaild : ['', [Validators.required, Validators.email]],
     petitionSigned: [true, Validators.required]
   }) 
 
@@ -47,8 +47,8 @@ export class AdoptionPageComponent implements OnInit {
     return this.adoptionForm.get('phoneNumber')
   }
 
-  get emailId(){
-    return this.adoptionForm.get('emailId')
+  get emaild(){
+    return this.adoptionForm.get('emaild')
   }
 
   get petitionSigned(){
@@ -63,9 +63,9 @@ export class AdoptionPageComponent implements OnInit {
   }
 
   getEmailErrorMsg(){
-    if(this.emailId.hasError('required'))
+    if(this.emaild.hasError('required'))
       return "You must enter a value";
-    else if(this.emailId.hasError('email'))
+    else if(this.emaild.hasError('email'))
       return "Please enter a valid email id";
   }
 
@@ -99,11 +99,11 @@ export class AdoptionPageComponent implements OnInit {
       // sessionStorage.setItem("adopterId", result);
     
     console.log(this.adoptionForm.value);
-    this._userService.postUserDetails(this.adoptionForm.value, this.petId).subscribe(result=>{
-      console.log(result);
-      sessionStorage.setItem("adopterId", result.id);
-      this.router.navigate(['/address']);
-    })
-    // this.router.navigate(['/address']);
+    // this._userService.postUserDetails(this.adoptionForm.value, this.petId).subscribe(result=>{
+    //   console.log(result);
+    //   sessionStorage.setItem("adopterId", result.id);
+    //   this.router.navigate(['/address', 'adopterId']);
+    // })
+      this.router.navigate(['/address', '2']);
   }
 }
