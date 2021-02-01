@@ -17,6 +17,7 @@ export class PetDetailsPageComponent implements OnInit {
   // cityName = ['pune','Raipur']
   animalName = []
   cityName = []
+  userId = sessionStorage.getItem('admin_id') || null;
   collectionCopy : Pet[] = []
   // collectionCity : Pet[] = []
   previousValue : string
@@ -55,11 +56,11 @@ export class PetDetailsPageComponent implements OnInit {
     // this.collectionCopy = this.collection
   }
 
-  adopt(id){
-    console.log(id);
-    sessionStorage.setItem('petId',id);
-    this.router.navigate(['/adopt']);
-  }
+  // adopt(id){
+  //   console.log(id);
+  //   sessionStorage.setItem('petId',id);
+  //   this.router.navigate(['/adopt']);
+  // }
 
   // updatePetDetails(petId: string) {
 	// 	this._adminService.getPetById(petId)

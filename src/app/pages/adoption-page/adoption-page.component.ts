@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {AdoptionModel} from '../../pojos/adoption-model'
 import {UserService} from '../../service/user.service'
 // import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -12,11 +12,11 @@ import {UserService} from '../../service/user.service'
 })
 export class AdoptionPageComponent implements OnInit {
 
-  petId = sessionStorage.getItem('petId') || 0;
+  // petId = sessionStorage.getItem('petId') || 0;
 
   adoptionModel = new AdoptionModel(undefined, "","",0,"","",false)
 
-  constructor (private fb: FormBuilder, private router: Router,private _userService : UserService) { }
+  constructor (private fb: FormBuilder, private router: Router,private _userService : UserService, private _route: ActivatedRoute) { }
 
   adoptionForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern("^[a-zA-Z ]+$")]],
@@ -30,6 +30,8 @@ export class AdoptionPageComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  
+  selectedPetId = +this._route.snapshot.paramMap.get('petId') || 0;
   
   get name(){
     return this.adoptionForm.get('name')
@@ -99,11 +101,11 @@ export class AdoptionPageComponent implements OnInit {
       // sessionStorage.setItem("adopterId", result);
     
     console.log(this.adoptionForm.value);
-    // this._userService.postUserDetails(this.adoptionForm.value, this.petId).subscribe(result=>{
-    //   console.log(result);
-    //   sessionStorage.setItem("adopterId", result.id);
-    //   this.router.navigate(['/address', 'adopterId']);
-    // })
-      this.router.navigate(['/address', '2']);
+    this._userService.postUserDetails(this.adoptionForm.value, this.selectedPetId).subscribe(result=>{
+      console.log(result);
+      // sessionStorage.setItem("adopterId", result.id);
+      this.router.navigate(['/address', result.id]);
+    })
+      // this.router.navigate(['/address', '2']);
   }
 }

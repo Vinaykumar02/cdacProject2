@@ -57,13 +57,13 @@
             <mat-card-content> {{item.gender}} </mat-card-content>
             <mat-card-content> {{item.city}} </mat-card-content>
             <mat-card-content> {{item.details}} </mat-card-content>
-            <mat-card-actions>
+            <mat-card-actions *ngIf="userId != null">
                 <!-- <button mat-flat-button color="accent" (click)="updatePetDetails(item.id)">Update</button> -->
                 <button mat-flat-button color="accent" [routerLink]="['/update',item.id]">Update</button>
                 <button mat-flat-button color="accent" (click)="deletePetDetails(item.id)">Delete</button>
             </mat-card-actions>
             <mat-card-footer>
-                <button fxFlex mat-flat-button color="primary" (click)="adopt(item.id)" class="btn">Adopt</button>
+                <!-- <button fxFlex mat-flat-button color="primary" (click)="adopt(item.id)" class="btn">Adopt</button> -->
                 <button fxFlex mat-flat-button color="primary" [routerLink]="['/adopt', item.id]" class="btn">Adopt</button>
             </mat-card-footer>   
         </mat-card>

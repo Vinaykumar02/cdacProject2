@@ -10,6 +10,7 @@ export class AdminService {
 
   url = 'http://localhost:8080';
   baseUrl = 'http://localhost:8080';
+  userId = sessionStorage.getItem('admin_id');
   
   constructor(private _http: HttpClient) { 
 
@@ -18,11 +19,11 @@ export class AdminService {
    return  this._http.post<any>(`${this.baseUrl}/user`, cred);
   }
 
-  postPetDetails(selectedFile: File, petData, userId): Observable<any>{
+  postPetDetails(selectedFile: File, petData): Observable<any>{
     const uploadData = new FormData();
     uploadData.append("imageFile", selectedFile);
     uploadData.append("dtls",JSON.stringify(petData));
-    return this._http.post(`${this.baseUrl}/pet/post/${userId}`, uploadData, {responseType : 'text'});
+    return this._http.post(`${this.baseUrl}/pet/post/${this.userId}`, uploadData, {responseType : 'text'});
 
     // return this._http.post<any>(this.url, petData)
     
