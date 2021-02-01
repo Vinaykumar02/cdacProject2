@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
 import {Pet} from '../../pojos/pet'
 import { User } from '../../pojos/user';
@@ -19,21 +19,24 @@ export class PostPageComponent implements OnInit {
   userId = sessionStorage.getItem('admin_id');
 
   petModel= new Pet(undefined,"","","","",false,"","");
+  postForm: any;
   // petModel= new Pet("dog","pamerian","female",false,"pune","picture"," puppie");
   constructor(private _adminService : AdminService,private router:Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+     this.postForm = this.fb.group({
+      animal: ['', Validators.required],
+      gender: ['', Validators.required],
+      city: ['', Validators.required],
+      details: ['', Validators.required],
+      adopted: [false, Validators.required],
+     //  image: ['', Validators.required],
+     //  imageContentType: ['', Validators.required]
+   })
+
   }
 
-  postForm = this.fb.group({
-     animal: ['', Validators.required],
-     gender: ['', Validators.required],
-     city: ['', Validators.required],
-     details: ['', Validators.required],
-    //  adopted: ['', Validators.required],
-    //  image: ['', Validators.required],
-    //  imageContentType: ['', Validators.required]
-  })
+  
   
 
   uploadFileEvt(evt){
@@ -56,13 +59,13 @@ export class PostPageComponent implements OnInit {
   onSubmit(){
     console.log("new post submitted");
     console.log(this.postForm.value,this.selectedFile)
-    //  this._adminService.postPetDetails(this.selectedFile, this.postForm, this.userId).subscribe(result=>{
-    //    console.log(result);
-    //    this.router.navigate(['/pet_details'])
-    //  }, error=>{
+     this._adminService.postPetDetails(this.selectedFile, this.postForm.value, this.userId).subscribe(result=>{
+       console.log(result);
+       this.router.navigate(['/pet_details'])
+     }, error=>{
 
-    //   this.router.navigate(['/**'])
-    //  })
+      this.router.navigate(['/**'])
+     })
 
   }
 

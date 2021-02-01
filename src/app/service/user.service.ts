@@ -16,11 +16,11 @@ export class UserService {
    }
 
   getPetCity() : Observable<any[]>{
-    return this._http.get<any[]>(this.baseUrl);
+    return this._http.get<any[]>(this.baseUrl + "city");
   
   }
   getAnimalName() : Observable<any[]>{
-    return this._http.get<any[]>(this.baseUrl);
+    return this._http.get<any[]>(this.baseUrl + "animal");
   
   }
 

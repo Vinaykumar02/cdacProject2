@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit{
 
   sessionStatus=false
   userName = '';
+  adminId = sessionStorage.getItem('admin_id');
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -31,5 +32,7 @@ export class HeaderComponent implements OnInit{
   }
   
   
-
+logout(){
+  this.router.navigate(['logout'])
+}
 }

@@ -7,12 +7,29 @@
 .filter{
     
     padding-top: 70px;
-    padding-left : 80%;
-   /* . display: inline; */
+    display: inline-block;
+    margin-left: 70%;
+
+   
 }
+mat-form-field{
+    
+    padding-left: 8px;
+}
+
 mat-card{
+    height: 650px ;
+    width :auto;
+    text-align: center;
+    background-color: rgba(134, 111, 153, 0.205);
+
+/* mat-card{
+    width: auto;
     height: auto;
-    width :300px;
+} */
+}
+select{
+    width: 100%;
 }
 
 .hvr-grow {

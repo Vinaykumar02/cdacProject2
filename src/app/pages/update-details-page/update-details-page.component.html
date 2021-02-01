@@ -1,6 +1,6 @@
 <div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
     <mat-card fxFlex="50">
-      <mat-toolbar color="primary" class="heading">Fill the form</mat-toolbar>
+      <mat-toolbar color="primary" class="heading">Update the form</mat-toolbar>
   
       <form fxLayoutAlign="stretch" fxLayout="column" class="postForm" novalidate [formGroup]="postForm"
         (ngSubmit)="onSubmit()">
@@ -33,29 +33,29 @@
 
         
   
-        <mat-form-field>
+        <!-- <mat-form-field>
           <div>
             <mat-toolbar>
   
-              <!-- Display files names -->
+              Display files names
               <input matInput [(value)]="fileAttr" readonly name="name" />
   
-              <!-- Browse Button -->
+              Browse Button
               <button mat-flat-button color="primary">
                 Browse File
               </button>
             </mat-toolbar>
   
-            <!-- Fetch selected filed on change -->
+            Fetch selected filed on change
             <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile"
               accept="image/*" />
           </div>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-checkbox formControlName="adopted" >Is Adopted</mat-checkbox>
 
   
-        <button mat-raised-button type="submit" color="primary" [disabled]="!postForm.valid">Post</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!postForm.valid">Update</button>
       </form>
   
     </mat-card>

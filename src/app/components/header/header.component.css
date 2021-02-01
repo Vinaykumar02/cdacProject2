@@ -1,19 +1,35 @@
 .navbar{
     justify-content: space-between;
-    background-color: #595971 !important;
+    /* background-color: #595971 !important; */
+    background-color: #254117 !important;
     padding-left: 10%;
-    height: 12%;
-    font-family: "Brush Script MT", cursive;
+    height: 8%;
+    font-family: 'Times New Roman', Times, serif;
 
 }
 strong{
+    font-family: "Brush Script MT", cursive;
     font-size: xx-large;
-    color: rgb(255, 203, 203);
 
 }
 a{
     font-size: x-large;
     
+}
+#logoutid{
+    width: 150px;
+    background-color: rgb(71, 55, 48,0%);
+    /* font-family: 'Times New Roman', Times, serif; */
+    height: 32px;
+    font-size: 16px;
+    text-align: center;
+   
+}
+::placeholder{
+    color: cyan;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+   
 }
 .nav-link:hover {
     /* background-color: chartreuse;
@@ -25,6 +41,7 @@ a{
     box-shadow: inset 0 0 0 1px rgba(255, 16, 16, 0.911), 0 0 1px rgba(187, 71, 71, 0);
     background-color: rgb(71, 55, 48);
   }
+ 
 .links{
     padding-right: 1rem;
 }

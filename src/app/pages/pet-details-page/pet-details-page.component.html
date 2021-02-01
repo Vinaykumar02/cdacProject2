@@ -21,36 +21,51 @@
 <!-- <div class="a" fxFlex fxLayout="column" fxLayoutGap="10px" style="height:100vh"> -->
 <!-- content here -->
 <div class="filter">
-    <strong>Filter:</strong> Animal
-    <select [(ngModel)]="selectedAnimal" (change)="valueSelected()">
-        <option *ngFor="let item of animalName">{{ item }}</option>
-    </select>
-    City
-    <select [(ngModel)]="selectedLocation" (change)="valueSelected1()">
-        <option *ngFor="let item of cityName">{{ item }}</option>
-    </select>
+    <strong>Filter:</strong>
+    <!-- <select [(ngModel)]="selectedAnimal" ng-options= "item for item in animalName" ng-multiple = "true" ></select> -->
+    <mat-form-field appearance="outline">
+        <mat-label>Animal</mat-label>
+        <mat-select [(ngModel)]="selectedAnimal" (selectionChange)="valueSelected($event)   " multiple>
+          <mat-option *ngFor="let item of animalName" [value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <!-- <select [(ngModel)]="selectedAnimal" (change)="valueSelected()" multiple >
+        <option *ngFor="let item of animalName">
+            <div style="display: inline-block;"><input type="checkbox" id="1" style="z-index: 6;"></div>
+        </option> -->
+    <!-- </select> -->
+    <!-- City
+    <select [(ngModel)]="selectedLocation" (change)="valueSelected1()" >
+        <option *ngFor="let item  cityName"><label ><input type="checkbox">{{ item }}</label></option>
+    </select>    -->
+    <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <mat-select [(ngModel)]="selectedLocation" (selectionChange)="valueSelected1($event)" multiple>
+          <mat-option *ngFor="let item of cityName"[value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 </div>
 <div class="b" fxLayout="row wrap">
     <!-- card list here -->
-    <div class="c" *ngFor="let item of collectionCopy" fxFlex="33" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100"
-        fxLayout="column" style="padding: 8px;">
+    <div class="c" *ngFor="let item of collectionCopy" fxFlex="25" fxFlex.md="25" fxFlex.sm="50" fxFlex.xs="100"
+        fxLayout="column" style="padding: 20px;">
         <!-- material card here -->
-        <mat-card>
-            <mat-card-title>
-                <div class="hvr-grow">
-                    <img  mat-card-image [src]="item.image" />
-                </div>
-            </mat-card-title>
-            <mat-card-title-group class="hvr-grow">
-                <mat-card-title> {{ item.animal }} </mat-card-title>
-                <mat-card-subtitle> {{ item.breed }} </mat-card-subtitle>
-                <mat-card-content> {{item.gender}} </mat-card-content>
-                <mat-card-content> {{item.location}} </mat-card-content>
-                <mat-card-content> {{item.details}} </mat-card-content>
-            </mat-card-title-group>
+        <mat-card class="hvr-grow">
+            <img mat-card-image src="data:{{item.imageContentType}};base64,{{item.image}}" style="height: 400px  ; width: 110%;">
+            <mat-card-title> {{ item.animal }} </mat-card-title>
+            <!-- <mat-card-subtitle> {{ item.breed }} </mat-card-subtitle> -->
+            <mat-card-content> {{item.gender}} </mat-card-content>
+            <mat-card-content> {{item.city}} </mat-card-content>
+            <mat-card-content> {{item.details}} </mat-card-content>
+            <mat-card-actions>
+                <!-- <button mat-flat-button color="accent" (click)="updatePetDetails(item.id)">Update</button> -->
+                <button mat-flat-button color="accent" [routerLink]="['/update',item.id]">Update</button>
+                <button mat-flat-button color="accent" (click)="deletePetDetails(item.id)">Delete</button>
+            </mat-card-actions>
             <mat-card-footer>
                 <button fxFlex mat-flat-button color="primary" (click)="adopt(item.id)" class="btn">Adopt</button>
-            </mat-card-footer>
+                <button fxFlex mat-flat-button color="primary" [routerLink]="['/adopt', item.id]" class="btn">Adopt</button>
+            </mat-card-footer>   
         </mat-card>
 
     </div>

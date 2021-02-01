@@ -10,6 +10,7 @@ import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-pa
 import {StepperComponent} from './stepper/stepper.component'
 import { HeaderComponent } from './components/header/header.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { UpdateDetailsPageComponent } from './pages/update-details-page/update-details-page.component'
 
 const routes: Routes = [
   {
@@ -21,15 +22,15 @@ const routes: Routes = [
     component : LogoutComponent
   },
   {
-    path : 'adopt',
+    path : 'adopt/:petId',
     component : AdoptionPageComponent
   },
   {
-    path : 'address',
+    path : 'address/:userId',
     component : AddressPageComponent
   },
   {
-    path : 'posts',
+    path : 'posts/:adminId',
     component : PostPageComponent
   },
   {
@@ -37,8 +38,8 @@ const routes: Routes = [
     component : PetDetailsPageComponent
   },
   {
-    path : 'stepper',
-    component : StepperComponent
+    path : 'update/:id',
+    component : UpdateDetailsPageComponent
   },
   {
     path : '',

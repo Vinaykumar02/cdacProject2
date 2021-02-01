@@ -14,6 +14,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
 const MaterialComponents = [
   MatButtonModule,
   MatIconModule,
@@ -29,7 +30,8 @@ const MaterialComponents = [
   MatStepperModule,
   MatGridListModule,
   MatExpansionModule,
-  MatDialogModule
+  MatDialogModule,
+  MatRadioModule
 ]
 
 @NgModule({

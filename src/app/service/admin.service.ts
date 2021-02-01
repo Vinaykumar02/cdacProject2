@@ -38,11 +38,11 @@ export class AdminService {
   //   // return this._http.post<any>(this.url, petData)
     
   // }
-  getPetById(petId: string): Observable<Pet> {
+  getPetById(petId: number): Observable<Pet> {
     return this._http.get<Pet>(this.baseUrl + "/" + petId);
   }
 
-  updatePet(pet: Pet): Observable<any> {
+  updatePetDetails(pet: Pet, userId: any): Observable<any> {
     // let httpHeaders = new HttpHeaders({
     //     'Content-Type': 'application/json'
     // });

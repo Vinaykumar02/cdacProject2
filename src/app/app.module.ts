@@ -24,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { PostEditDeletePageComponent } from './pages/post-edit-delete-page/post-edit-delete-page.component';
 import { DialogAdoptionComponent } from './pages/dialog-adoption/dialog-adoption.component';
+import { UpdateDetailsPageComponent } from './pages/update-details-page/update-details-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,10 +40,12 @@ import { DialogAdoptionComponent } from './pages/dialog-adoption/dialog-adoption
     StepperComponent,
     LogoutComponent,
     PostEditDeletePageComponent,
-    DialogAdoptionComponent
+    DialogAdoptionComponent,
+    UpdateDetailsPageComponent
   ],
   entryComponents: [
     DialogAdoptionComponent
+    
     
   ],
   imports: [

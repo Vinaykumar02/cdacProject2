@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import {AdminService} from '../../service/admin.service'
@@ -14,7 +14,7 @@ export class LoginPageComponent implements OnInit {
   userName = "";
   userId : number;
  
-  constructor(private _adminService : AdminService,private router:Router) { }
+  constructor(private _adminService : AdminService,private router:Router,private cref : ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -26,16 +26,17 @@ export class LoginPageComponent implements OnInit {
     console.log(myform.value.emailId)
     console.log(myform.value.password)
 
-      this._adminService.getLoginDetails(myform.value).subscribe(data=>{
+     this._adminService.getLoginDetails(myform.value).subscribe(data=>{
         console.log(data.userName);
         console.log(data.id);
         sessionStorage.setItem('userName',data.userName);
         sessionStorage.setItem('admin_id',data.id);
-    
-
-    
+        sessionStorage.setItem('userName',myform.value.userName);
+        this.cref.detectChanges();
+        this.router.navigate(['/']).then(()=>{
+          window.location.reload();
+        })
         
-        this.router.navigate(['/']);
   
     }, error=>{
       console.log(error);
