@@ -24,9 +24,11 @@ export class AddressPageComponent implements OnInit {
   constructor(private _userService:UserService,private router:Router,public dialog: MatDialog,private _route: ActivatedRoute) { }
   // constructor(private _userService:UserService,private router:Router, private _route: ActivatedRoute) { }
 
-  adopterId = +this._route.snapshot.paramMap.get('userId') || 0;
+  adopterId = this._route.snapshot.paramMap.get('userId') || null;
+  // selectedPetId = +this._route.snapshot.paramMap.get('petId') || 0;
 
   ngOnInit(): void {
+    // console.log(this.selectedPetId);
   }
   onSubmit(myform:NgForm){
     console.log("submitted");

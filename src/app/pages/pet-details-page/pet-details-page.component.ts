@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Pet } from 'src/app/pojos/pet';
 import { AdminService } from 'src/app/service/admin.service';
 import { UserService } from 'src/app/service/user.service';
-import { resourceLimits } from 'worker_threads';
+// import { resourceLimits } from 'worker_threads';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class PetDetailsPageComponent implements OnInit {
 
   collection : Pet[] = [
     // new Pet(1, "Horse","Male","pune","The one who run fast",false,"picture 1","jpg"),
-    // new Pet(2, "Dog","Male","pune"," puppie",false,"picture 3","jpg"),
+    // new Pet(2, "Dog","Male","pune"," puppie",true,"picture 3","jpg"),
     // new Pet(3, "Cat","female","Raipur"," kitty",false,"picture 1","jpg")
     // new Pet(5, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
     // new Pet(6, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
@@ -35,6 +35,8 @@ export class PetDetailsPageComponent implements OnInit {
     // new Pet(4, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
     // new Pet(21, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
   ];
+
+  // coll = this.collection.filter();
 
   constructor(private _adminService: AdminService, private _userService: UserService, private router: Router) { }
 
@@ -71,7 +73,14 @@ export class PetDetailsPageComponent implements OnInit {
 	// 		})
   // }
 
-  deletePetDetails(petId: string) {
+  deletePetDetails(petId) {
+    this.collection.findIndex(()=>{
+      for (let item of this.collection) {
+        if(item.id == petId)
+          return;
+      }
+    })
+    this.collection.splice(petId, 1);
 		this._adminService.deletePetById(petId).subscribe(successCode => {
 				//this.statusCode = successCode;
 				//Expecting success code 204 from server

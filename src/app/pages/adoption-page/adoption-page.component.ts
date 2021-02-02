@@ -13,7 +13,7 @@ import {UserService} from '../../service/user.service'
 export class AdoptionPageComponent implements OnInit {
 
   // petId = sessionStorage.getItem('petId') || 0;
-
+  
   adoptionModel = new AdoptionModel(undefined, "","",0,"","",false)
 
   constructor (private fb: FormBuilder, private router: Router,private _userService : UserService, private _route: ActivatedRoute) { }
@@ -31,7 +31,10 @@ export class AdoptionPageComponent implements OnInit {
     
   }
   
-  selectedPetId = +this._route.snapshot.paramMap.get('petId') || 0;
+  
+
+  selectedPetId = this._route.snapshot.paramMap.get('petId') || null;
+  
   
   get name(){
     return this.adoptionForm.get('name')
@@ -93,19 +96,21 @@ export class AdoptionPageComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("Adopted");
+    // console.log("Adopted");
     // RouterLink="address"
-    console.log(this.adoptionForm);
+    // console.log(this.adoptionForm);
     // this._userService.postUserDetails(this.adoptionForm).subscribe(result=>{
     //   console.log(result);
       // sessionStorage.setItem("adopterId", result);
-    
-    console.log(this.adoptionForm.value);
+    // console.log(sessionStorage.getItem("petId"))
+    sessionStorage.setItem("petId", this.selectedPetId);
+    // console.log(this.adoptionForm.value);
     this._userService.postUserDetails(this.adoptionForm.value, this.selectedPetId).subscribe(result=>{
-      console.log(result);
-      // sessionStorage.setItem("adopterId", result.id);
+      // result.id;
+      // console.log(result);
+      sessionStorage.setItem("adopterId", result.id);
       this.router.navigate(['/address', result.id]);
     })
-      // this.router.navigate(['/address', '2']);
+      // this.router.navigate(['/address', 'selectedPetId']);
   }
 }

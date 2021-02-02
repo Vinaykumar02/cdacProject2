@@ -29,7 +29,7 @@ export class PostPageComponent implements OnInit {
       gender: ['', Validators.required],
       city: ['', Validators.required],
       details: ['', Validators.required],
-      adopted: [false, Validators.required],
+      // adopted: [false, Validators.required],
      //  image: ['', Validators.required],
      //  imageContentType: ['', Validators.required]
    })
