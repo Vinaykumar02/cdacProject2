@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Pet } from 'src/app/pojos/pet';
 import { AdminService } from 'src/app/service/admin.service';
 import { UserService } from 'src/app/service/user.service';
-import { resourceLimits } from 'worker_threads';
+// import { resourceLimits } from 'worker_threads';
 
 
 @Component({
@@ -71,7 +71,7 @@ export class PetDetailsPageComponent implements OnInit {
 	// 		})
   // }
 
-  deletePetDetails(petId: string) {
+  deletePetDetails(petId: any) {
 		this._adminService.deletePetById(petId).subscribe(successCode => {
 				//this.statusCode = successCode;
 				//Expecting success code 204 from server

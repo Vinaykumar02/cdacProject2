@@ -1,5 +1,5 @@
 <div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
-    <mat-card fxFlex="50">
+    <mat-card fxFlex="40">
         <mat-toolbar color="primary" class="heading">Adoption Form</mat-toolbar>
   
         <form fxLayoutAlign="stretch" fxLayout="column" novalidate 
@@ -42,8 +42,16 @@
           </mat-form-field>
           
             <!-- <mat-form-field appearance="fill"> -->
-            <mat-checkbox formControlName="petitionSigned" >Sign Petition</mat-checkbox>
-            <mat-error *ngIf="petitionSigned.hasError('required')">You must sign the petetion</mat-error>
+                <mat-card-content>
+                    By checking the box below, you understand the terms of this form and adoptee.
+                     You hereby agree that you will not use this animal in any sort of fighting, breeding, or cruelty. 
+                     You will love and care for this animal for the rest of its life, and you are ready to commit to that.
+                      You also agree, that if for any circumstances you can no longer provide love and care for this animal, 
+                     you will contact an admin of the group and explain your situation before taking the animal to a shelter.
+    
+                </mat-card-content>
+                <mat-checkbox formControlName="petitionSigned" >I understand the above, and have tried to the best of my knowledge<br> to make sure all information is correct.</mat-checkbox>
+                <mat-error *ngIf="petitionSigned.hasError('required')">You must sign the petetion</mat-error>
         <!-- </mat-form-field> -->
             <button mat-raised-button type="submit" color="primary" [disabled]="!(petitionSigned.value) || !(adoptionForm.valid)">Next</button>
         </form>

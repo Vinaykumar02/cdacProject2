@@ -31,8 +31,8 @@ export class LoginPageComponent implements OnInit {
         console.log(data.id);
         sessionStorage.setItem('userName',data.userName);
         sessionStorage.setItem('admin_id',data.id);
-        sessionStorage.setItem('userName',myform.value.userName);
-        this.cref.detectChanges();
+        // sessionStorage.setItem('userName',myform.value.userName);
+        // this.cref.detectChanges();
         this.router.navigate(['/']).then(()=>{
           window.location.reload();
         })

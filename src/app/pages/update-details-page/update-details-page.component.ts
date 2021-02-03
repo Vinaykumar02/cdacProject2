@@ -34,7 +34,7 @@ export class UpdateDetailsPageComponent implements OnInit {
      .subscribe(result => {
        this.postForm.patchValue({
          animal : result.animal,
-         gender : result.adopted,
+         gender : result.gender,
          city : result.city,
          details : result.details,
          adopted : result.adopted,
@@ -64,7 +64,7 @@ export class UpdateDetailsPageComponent implements OnInit {
   onSubmit(){
     console.log("new post submitted");
     console.log(this.postForm.value)
-     this._adminService.updatePetDetails(this.postForm.value, this.userId).subscribe(result=>{
+     this._adminService.updatePetDetails(this.postForm.value, this.selectedPetId).subscribe(result=>{
        console.log(result);
        this.router.navigate(['/pet_details'])
      }, error=>{

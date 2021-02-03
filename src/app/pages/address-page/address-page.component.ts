@@ -25,6 +25,8 @@ export class AddressPageComponent implements OnInit {
   // constructor(private _userService:UserService,private router:Router, private _route: ActivatedRoute) { }
 
   adopterId = +this._route.snapshot.paramMap.get('userId') || 0;
+  adopterName = +this._route.snapshot.paramMap.get('adopterName') || 0
+  petId = +this._route.snapshot.paramMap.get('petId') || 0
 
   ngOnInit(): void {
   }
@@ -39,7 +41,7 @@ export class AddressPageComponent implements OnInit {
       
     })
     let dialogRef = this.dialog.open(DialogAdoptionComponent , {
-      data: { name: 'austin',petId: '11111' },
+      data: { name: this.adopterName,petId: this.petId },
       width:"30%",
       height:"auto",
       disableClose: true,

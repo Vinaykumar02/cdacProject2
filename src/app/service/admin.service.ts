@@ -40,14 +40,14 @@ export class AdminService {
     
   // }
   getPetById(petId: number): Observable<Pet> {
-    return this._http.get<Pet>(this.baseUrl + "/" + petId);
+    return this._http.get<Pet>(this.baseUrl + "/pet/" + petId);
   }
 
-  updatePetDetails(pet: Pet, userId: any): Observable<any> {
+  updatePetDetails(pet: Pet, petId: any): Observable<any> {
     // let httpHeaders = new HttpHeaders({
     //     'Content-Type': 'application/json'
     // });
-    return this._http.put<Pet>(this.baseUrl + "/" + pet.id, pet); 
+    return this._http.put<Pet>(this.baseUrl + "/pet/" + petId, pet); 
     // {
     //     headers: httpHeaders,
     //     observe: 'response'
@@ -57,8 +57,9 @@ export class AdminService {
     //     catchError(this.handleError)
     // );
 }
-  deletePetById(petId: string): Observable<number> {
-    return this._http.delete<number>(this.baseUrl + "/" + petId);
+  deletePetById(petId: any): Observable<any> {
+    console.log("a");
+    return this._http.delete<any>(this.baseUrl + "/pet/" + petId);
     // .pipe(
         // tap(status => console.log("status: " + status)),
         // catchError(this.handleError)

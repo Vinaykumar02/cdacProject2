@@ -51,7 +51,7 @@
         fxLayout="column" style="padding: 20px;">
         <!-- material card here -->
         <mat-card class="hvr-grow">
-            <img mat-card-image src="data:{{item.imageContentType}};base64,{{item.image}}" style="height: 400px  ; width: 110%;">
+            <img mat-card-image src="data:{{item.imageContentType}};base64,{{item.image}}" style="height: 230px  ; width: 110.8%;">
             <mat-card-title> {{ item.animal }} </mat-card-title>
             <!-- <mat-card-subtitle> {{ item.breed }} </mat-card-subtitle> -->
             <mat-card-content> {{item.gender}} </mat-card-content>
@@ -59,12 +59,14 @@
             <mat-card-content> {{item.details}} </mat-card-content>
             <mat-card-actions *ngIf="userId != null">
                 <!-- <button mat-flat-button color="accent" (click)="updatePetDetails(item.id)">Update</button> -->
-                <button mat-flat-button color="accent" [routerLink]="['/update',item.id]">Update</button>
-                <button mat-flat-button color="accent" (click)="deletePetDetails(item.id)">Delete</button>
-            </mat-card-actions>
-            <mat-card-footer>
+                <button mat-flat-button color="primary" [routerLink]="['/update',item.id]" class="btn1">Update</button> &nbsp;&nbsp;
+                <button mat-flat-button color="primary" (click)="deletePetDetails(item.id)" class="btn1">Delete</button>
+            </mat-card-actions> 
+            <mat-card-footer *ngIf="userId == null">
                 <!-- <button fxFlex mat-flat-button color="primary" (click)="adopt(item.id)" class="btn">Adopt</button> -->
-                <button fxFlex mat-flat-button color="primary" [routerLink]="['/adopt', item.id]" class="btn">Adopt</button>
+                <!-- <mat-card-actions *ngIf="userId == null"> -->
+                    <button fxFlex mat-flat-button color="primary" [routerLink]="['/adopt', item.id]" class="btn">Adopt</button>
+                <!-- </mat-card-actions> -->
             </mat-card-footer>   
         </mat-card>
 
