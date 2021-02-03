@@ -26,7 +26,7 @@ const routes: Routes = [
     component : AdoptionPageComponent
   },
   {
-    path : 'address/:userId/:userName/:petId',
+    path : 'address/:petId',
     component : AddressPageComponent
   },
   {
