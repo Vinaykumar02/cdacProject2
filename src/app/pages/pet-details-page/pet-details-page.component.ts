@@ -33,9 +33,10 @@ export class PetDetailsPageComponent implements OnInit {
   
   ngOnInit(): void {
     this._userService.getPetList().subscribe(result=>{
-      // console.log(result);
+      console.log("a");
       this.collection = result;
       this.collectionCopy = this.collection
+      console.log("b");
     })
      this._userService.getAnimalName().subscribe(result=>{
        console.log(result);
@@ -46,9 +47,10 @@ export class PetDetailsPageComponent implements OnInit {
        this.cityName = result;
       
      })
-
-    // this.getAnimalName();
-    // this.getCityName();
+    // console.log("c");
+    //  this.getAnimalName();
+    //  this.getCityName();
+    //  console.log("d");
     // console.log(this.animalName)
     // console.log(this.cityName)
 
@@ -57,11 +59,13 @@ export class PetDetailsPageComponent implements OnInit {
 
 
   getAnimalName(){
+    console.log("e");
     this.animalName = this.collection.map(item =>item.animal)
       .filter((value, index, arr) => arr.indexOf(value) === index);
   }
 
   getCityName(){
+    console.log("f");
    this.cityName = this.collection.map(item =>item.city)
       .filter((value, index, arr) => arr.indexOf(value) === index);
   }
@@ -114,18 +118,14 @@ export class PetDetailsPageComponent implements OnInit {
     }
     if (newCollection.length > 0) {
       this.collectionCopy = newCollection;}
-    // } else{
-    //   alert("No animal found, please change your filters")
-    //   // this.collectionCopy = this.collection;
-    // }
+
     this.previousValue = value;
     if (arr.length < 1 && newCollection.length < 1) {
       this.collectionCopy = this.collection;
     }
-    // debugger
-    // this.collectionCopy = [...this.collectionCopy];
   }
   
+
   deleteConfirmation(id){
     console.log(this.collection.map(item =>item.animal)
     .filter((value, index, arr) => arr.indexOf(value) === index));
