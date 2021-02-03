@@ -25,6 +25,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { PostEditDeletePageComponent } from './pages/post-edit-delete-page/post-edit-delete-page.component';
 import { DialogAdoptionComponent } from './pages/dialog-adoption/dialog-adoption.component';
 import { UpdateDetailsPageComponent } from './pages/update-details-page/update-details-page.component';
+import { DeleteConfirmationDialogeComponent } from './components/delete-confirmation-dialoge/delete-confirmation-dialoge.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,12 +42,12 @@ import { UpdateDetailsPageComponent } from './pages/update-details-page/update-d
     LogoutComponent,
     PostEditDeletePageComponent,
     DialogAdoptionComponent,
-    UpdateDetailsPageComponent
+    UpdateDetailsPageComponent,
+    DeleteConfirmationDialogeComponent
   ],
   entryComponents: [
-    DialogAdoptionComponent
-    
-    
+    DialogAdoptionComponent,
+    DeleteConfirmationDialogeComponent
   ],
   imports: [
     BrowserModule,

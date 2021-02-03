@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-update-details-page',
@@ -14,7 +15,7 @@ export class UpdateDetailsPageComponent implements OnInit {
   selectedPetId: number;
 
 
-  constructor(private _adminService : AdminService,private router:Router, private fb: FormBuilder, private _route: ActivatedRoute) { }
+  constructor(private _adminService : AdminService,private router:Router, private fb: FormBuilder, private _route: ActivatedRoute, private notification: NotificationService) { }
 
   ngOnInit(): void {
     this.postForm = this.fb.group({
@@ -34,7 +35,7 @@ export class UpdateDetailsPageComponent implements OnInit {
      .subscribe(result => {
        this.postForm.patchValue({
          animal : result.animal,
-         gender : result.adopted,
+         gender : result.gender,
          city : result.city,
          details : result.details,
          adopted : result.adopted,
@@ -64,8 +65,9 @@ export class UpdateDetailsPageComponent implements OnInit {
   onSubmit(){
     console.log("new post submitted");
     console.log(this.postForm.value)
-     this._adminService.updatePetDetails(this.postForm.value, this.userId).subscribe(result=>{
+     this._adminService.updatePetDetails(this.postForm.value, this.selectedPetId).subscribe(result=>{
        console.log(result);
+       this.notification.success('::Updated Successfully!')
        this.router.navigate(['/pet_details'])
      }, error=>{
 

@@ -25,10 +25,12 @@ export class AddressPageComponent implements OnInit {
   // constructor(private _userService:UserService,private router:Router, private _route: ActivatedRoute) { }
 
   adopterId = this._route.snapshot.paramMap.get('userId') || null;
-  // selectedPetId = +this._route.snapshot.paramMap.get('petId') || 0;
+  // adopterName = +this._route.snapshot.paramMap.get('userName') || 0
+  // petId = +this._route.snapshot.paramMap.get('petId') || 0
+  adopterName = sessionStorage.getItem("userName");
+  petId = sessionStorage.getItem("petId")
 
   ngOnInit(): void {
-    // console.log(this.selectedPetId);
   }
   onSubmit(myform:NgForm){
     console.log("submitted");
@@ -41,7 +43,7 @@ export class AddressPageComponent implements OnInit {
       
     })
     let dialogRef = this.dialog.open(DialogAdoptionComponent , {
-      data: { name: 'austin',petId: '11111' },
+      data: { name: this.adopterName,petId: this.petId },
       width:"30%",
       height:"auto",
       disableClose: true,

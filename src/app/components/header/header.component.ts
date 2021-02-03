@@ -10,7 +10,8 @@ export class HeaderComponent implements OnInit{
 
   sessionStatus=false
   userName = '';
-  adminId = sessionStorage.getItem('admin_id');
+  adminId = sessionStorage.getItem('admin_id');  
+  
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit{
       this.sessionStatus=true;
       // sessionStorage.setItem('reload','true')
     }
-   
+    console.log(this.adminId);
+    
     console.log(this.sessionStatus);
     console.log(sessionStorage.getItem('userName'));
   //   if(sessionStorage.getItem('reload')!=='true'){

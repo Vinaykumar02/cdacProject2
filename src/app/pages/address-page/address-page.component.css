@@ -1,5 +1,15 @@
 .mainDiv mat-card{
+    background-color: rgba(255, 245, 245, 80%);
     padding: 0px;
+    margin-top: 30px;
+}
+
+.mainDiv {
+    background-image: url("../../../assets/original.gif");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .addressForm{

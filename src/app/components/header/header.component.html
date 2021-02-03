@@ -29,7 +29,7 @@
         <a class="nav-link"  routerLink="login">Login</a>
       </li>
       <li class="nav-item" *ngIf="sessionStatus">
-        <a class="nav-link" routerLink="['/posts', {{adminId}}]">Post</a>
+        <a class="nav-link" [routerLink]="['/posts', adminId]">Post</a>
       </li>
       <li class="nav-item" *ngIf="sessionStatus">
         <input class="nav-link" type="text" list="logout" id="logoutid" placeholder="{{userName}}"(change)="logout()">
