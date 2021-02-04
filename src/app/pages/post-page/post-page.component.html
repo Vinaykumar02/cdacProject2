@@ -9,10 +9,7 @@
           <input matInput formControlName="animal">
           <mat-error *ngIf="animal.hasError('required')">You must enter a value</mat-error>
         </mat-form-field>
-        <!-- <mat-form-field appearance="fill">
-          <mat-label>Breed</mat-label>
-          <input matInput formControlName="breed">
-        </mat-form-field> -->
+        
         <mat-form-field appearance="fill">
           <mat-label>Gender</mat-label>
           <input matInput formControlName="gender">
@@ -52,7 +49,6 @@
           </div>
         </mat-form-field>
 
-        <mat-checkbox formControlName="adopted" >Is Adopted</mat-checkbox>
 
   
         <button mat-raised-button type="submit" color="primary" [disabled]="!postForm.valid">Post</button>
@@ -60,5 +56,4 @@
   
     </mat-card>
   </div>
-  <!-- <app-post-edit-delete-page></app-post-edit-delete-page> -->
   

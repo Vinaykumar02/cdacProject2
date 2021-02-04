@@ -7,7 +7,6 @@ import { PostPageComponent } from './pages/post-page/post-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PetDetailsPageComponent } from './pages/pet-details-page/pet-details-page.component';
-import {StepperComponent} from './stepper/stepper.component'
 import { HeaderComponent } from './components/header/header.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { UpdateDetailsPageComponent } from './pages/update-details-page/update-details-page.component'
@@ -26,7 +25,7 @@ const routes: Routes = [
     component : AdoptionPageComponent
   },
   {
-    path : 'address/:userId/:userName/:petId',
+    path : 'address/:petId',
     component : AddressPageComponent
   },
   {

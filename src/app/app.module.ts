@@ -19,10 +19,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import {HttpClientModule} from '@angular/common/http';
-import { StepperComponent } from './stepper/stepper.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LogoutComponent } from './pages/logout/logout.component';
-import { PostEditDeletePageComponent } from './pages/post-edit-delete-page/post-edit-delete-page.component';
 import { DialogAdoptionComponent } from './pages/dialog-adoption/dialog-adoption.component';
 import { UpdateDetailsPageComponent } from './pages/update-details-page/update-details-page.component';
 import { DeleteConfirmationDialogeComponent } from './components/delete-confirmation-dialoge/delete-confirmation-dialoge.component';
@@ -38,9 +36,7 @@ import { DeleteConfirmationDialogeComponent } from './components/delete-confirma
     FooterComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    StepperComponent,
     LogoutComponent,
-    PostEditDeletePageComponent,
     DialogAdoptionComponent,
     UpdateDetailsPageComponent,
     DeleteConfirmationDialogeComponent
