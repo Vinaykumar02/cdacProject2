@@ -24,9 +24,11 @@ export class AddressPageComponent implements OnInit {
   constructor(private _userService:UserService,private router:Router,public dialog: MatDialog,private _route: ActivatedRoute) { }
   // constructor(private _userService:UserService,private router:Router, private _route: ActivatedRoute) { }
 
-  adopterId = +this._route.snapshot.paramMap.get('userId') || 0;
-  adopterName = +this._route.snapshot.paramMap.get('adopterName') || 0
-  petId = +this._route.snapshot.paramMap.get('petId') || 0
+  adopterId = this._route.snapshot.paramMap.get('userId') || null;
+  // adopterName = +this._route.snapshot.paramMap.get('userName') || 0
+  // petId = +this._route.snapshot.paramMap.get('petId') || 0
+  adopterName = sessionStorage.getItem("userName");
+  petId = sessionStorage.getItem("petId")
 
   ngOnInit(): void {
   }

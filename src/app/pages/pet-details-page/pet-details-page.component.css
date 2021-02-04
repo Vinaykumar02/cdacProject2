@@ -3,10 +3,11 @@
 } */
 .b{
     padding-top:10px ;
+    min-height: 100%;
 }
 .filter{
     
-    padding-top: 70px;
+    padding-top: 5%;
     display: inline-block;
     margin-left: 70%;
 

@@ -1,46 +1,49 @@
-<div fxLayoutAlign="center center"  fxFlexFill class="mainDiv">
-    <mat-card fxFlex="40">
-        <mat-toolbar color="primary" class="heading">Address Page</mat-toolbar>
-        <form fxLayoutAlign="stretch" fxLayout="column" class="addressForm" novalidate #addressForm="ngForm" (ngSubmit)="onSubmit(addressForm)">
-            <mat-form-field appearance="fill">
-                <mat-label>Flat/House Number</mat-label>
-                <input matInput [(ngModel)]="addressData.flatNumber" name="flatNumber">
-            </mat-form-field >
-            <mat-form-field appearance="fill">
-                <mat-label>Street</mat-label>
-                <input matInput [(ngModel)]="addressData.building" name="building">
-            </mat-form-field >
-            <mat-form-field appearance="fill">
-                <mat-label>Area</mat-label>
-                <input matInput [(ngModel)]=" addressData.area" name="area" >
-            </mat-form-field >
-            <mat-form-field appearance="fill">
-                <mat-label>City</mat-label>
-                <input matInput [(ngModel)]="addressData.city" name="city" #city="ngModel" required>
-                <mat-error *ngIf="city.hasError('required')">You must enter a value</mat-error>
-            </mat-form-field >
-            <mat-form-field appearance="fill">
-                <mat-label>District</mat-label>
-                <input matInput [(ngModel)]="addressData.district" name="district" #district="ngModel" required>
-                <mat-error *ngIf="district.hasError('required')">You must enter a value</mat-error>
-            </mat-form-field >
-            <mat-form-field appearance="fill">
-                <mat-label>State</mat-label>
-                <mat-select [(ngModel)]="addressData.state" name="state" #state="ngModel" required>
-                  <mat-option *ngFor="let state of states" [value]="state">
-                    {{state}}
-                  </mat-option>
-                </mat-select>
-                <mat-error *ngIf="state.hasError('required')">You must choose a value</mat-error>
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Pincode</mat-label>
-                <input matInput [(ngModel)]="addressData.pinCode" name="pinCode" #pinCode="ngModel" required>
-                <mat-error *ngIf="pinCode.hasError('required')">You must enter a value</mat-error>
-            </mat-form-field >
-            
-            <button mat-raised-button type="submit" color="primary" [disabled]="!addressForm.valid">Adopt</button>
-        </form>
+<div class="address">
+    <div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
+        <mat-card fxFlex="40">
+            <mat-toolbar color="primary" class="heading">Address Page</mat-toolbar>
+            <form fxLayoutAlign="stretch" fxLayout="column" class="addressForm" novalidate #addressForm="ngForm"
+                (ngSubmit)="onSubmit(addressForm)">
+                <mat-form-field appearance="fill">
+                    <mat-label>Flat/House Number</mat-label>
+                    <input matInput [(ngModel)]="addressData.flatNumber" name="flatNumber">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Street</mat-label>
+                    <input matInput [(ngModel)]="addressData.building" name="building">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Area</mat-label>
+                    <input matInput [(ngModel)]=" addressData.area" name="area">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>City</mat-label>
+                    <input matInput [(ngModel)]="addressData.city" name="city" #city="ngModel" required>
+                    <mat-error *ngIf="city.hasError('required')">You must enter a value</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>District</mat-label>
+                    <input matInput [(ngModel)]="addressData.district" name="district" #district="ngModel" required>
+                    <mat-error *ngIf="district.hasError('required')">You must enter a value</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>State</mat-label>
+                    <mat-select [(ngModel)]="addressData.state" name="state" #state="ngModel" required>
+                        <mat-option *ngFor="let state of states" [value]="state">
+                            {{state}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="state.hasError('required')">You must choose a value</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Pincode</mat-label>
+                    <input matInput [(ngModel)]="addressData.pinCode" name="pinCode" #pinCode="ngModel" required>
+                    <mat-error *ngIf="pinCode.hasError('required')">You must enter a value</mat-error>
+                </mat-form-field>
 
-    </mat-card>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!addressForm.valid">Adopt</button>
+            </form>
+
+        </mat-card>
+    </div>
 </div>

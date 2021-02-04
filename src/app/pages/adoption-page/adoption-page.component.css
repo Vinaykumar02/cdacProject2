@@ -1,11 +1,14 @@
 .mainDiv mat-card{
     background-color: rgba(255, 245, 245, 80%);
-    padding-top: 120px;
+    /* padding-top: 120px; */
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .mainDiv {
+    margin-top: 4%;
     background-image: url("../../../assets/original.gif");
-    height: 130%;
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,4 +19,7 @@
 }
 .heading{
     justify-content: center;
+}
+.adoptionForm{
+    min-height: 100%;
 }

@@ -60,7 +60,8 @@
             <mat-card-actions *ngIf="userId != null">
                 <!-- <button mat-flat-button color="accent" (click)="updatePetDetails(item.id)">Update</button> -->
                 <button mat-flat-button color="primary" [routerLink]="['/update',item.id]" class="btn1">Update</button> &nbsp;&nbsp;
-                <button mat-flat-button color="primary" (click)="deletePetDetails(item.id)" class="btn1">Delete</button>
+                <!-- <button mat-flat-button color="primary" (click)="deletePetDetails(item.id)" class="btn1">Delete</button> -->
+                <button mat-flat-button color="primary" (click)="deleteConfirmation(item.id)" class="btn1">Delete</button>
             </mat-card-actions> 
             <mat-card-footer *ngIf="userId == null">
                 <!-- <button fxFlex mat-flat-button color="primary" (click)="adopt(item.id)" class="btn">Adopt</button> -->

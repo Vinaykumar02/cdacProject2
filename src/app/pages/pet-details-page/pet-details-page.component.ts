@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Pet } from 'src/app/pojos/pet';
 import { AdminService } from 'src/app/service/admin.service';
+import { NotificationService } from 'src/app/service/notification.service';
 import { UserService } from 'src/app/service/user.service';
 // import { resourceLimits } from 'worker_threads';
-
+import { DeleteConfirmationDialogeComponent } from '../../components/delete-confirmation-dialoge/delete-confirmation-dialoge.component'; 
 
 @Component({
   selector: 'app-pet-details-page',
@@ -36,23 +38,27 @@ export class PetDetailsPageComponent implements OnInit {
     // new Pet(21, "Horse","Lipizzan","Male",false,"pune","picture 3","The one who run fast"),
   ];
 
-  constructor(private _adminService: AdminService, private _userService: UserService, private router: Router) { }
+  constructor(private _adminService: AdminService, private _userService: UserService, private router: Router, private dialog : MatDialog, private notification: NotificationService) { }
 
+  
   ngOnInit(): void {
     this._userService.getPetList().subscribe(result=>{
       console.log(result);
       this.collection = result;
       this.collectionCopy = this.collection
     })
-    this._userService.getAnimalName().subscribe(result=>{
-      console.log(result);
-      this.animalName = result;
-    })
-    this._userService.getPetCity().subscribe(result=>{
-      console.log(result);
-      this.cityName = result;
+    // this._userService.getAnimalName().subscribe(result=>{
+    //   console.log(result);
+    //   this.animalName = result;
+    // })
+    // this._userService.getPetCity().subscribe(result=>{
+    //   console.log(result);
+    //   this.cityName = result;
       
-    })
+    // })
+    this.getAnimalName();
+    this.getCityName();
+
     // this.collectionCopy = this.collection
   }
 
@@ -71,16 +77,27 @@ export class PetDetailsPageComponent implements OnInit {
 	// 		})
   // }
 
-  deletePetDetails(petId: any) {
-		this._adminService.deletePetById(petId).subscribe(successCode => {
-				//this.statusCode = successCode;
-				//Expecting success code 204 from server
-        // this.statusCode = 204;
-        console.log(successCode); 
-        
-				// this.getAllPetDetails();
-			})
-	}
+  getAnimalName(){
+    this.animalName = this.collectionCopy.map(item =>item.animal)
+      .filter((value, index, arr) => arr.indexOf(value) === index);
+  }
+
+  getCityName(){
+   this.cityName = this.collectionCopy.map(item =>item.city)
+      .filter((value, index, arr) => arr.indexOf(value) === index);
+  }
+
+  // deletePetDetails(petId: any) {
+	// 	this._adminService.deletePetById(petId).subscribe(successCode => {
+	// 			//this.statusCode = successCode;
+	// 			//Expecting success code 204 from server
+  //       // this.statusCode = 204;
+  //       console.log(successCode); 
+  //       this.getAnimalName();
+  //       this.getCityName();
+	// 			// this.getAllPetDetails();
+	// 		})
+	// }
 
   
   public selectedLocation;
@@ -95,7 +112,7 @@ export class PetDetailsPageComponent implements OnInit {
   }
   public valueSelected1(city){
     this.actualFilter(city.value, 'city');
-    // this.collectionCopy   = this.collection.filter(
+    // tuserNamehis.collectionCopy   = this.collection.filter(
     //   item => item.city=== this.selectedLocation
     // );
   } 
@@ -139,6 +156,24 @@ export class PetDetailsPageComponent implements OnInit {
     // debugger
     // this.collectionCopy = [...this.collectionCopy];
   }
-
-
+  
+  deleteConfirmation(id){
+    this.dialog.open(DeleteConfirmationDialogeComponent , {
+      data: { msg : "Are you sure to delete this record?" },
+      width:"30%",
+      panelClass: 'confirm-dialog-container',
+      height:"auto",
+      disableClose: true,
+    }).afterClosed().subscribe(res=>{
+      console.log(res);
+      if(res){
+        this._adminService.deletePetById(id).subscribe(successCode => {
+          console.log(successCode); 
+          this.getAnimalName();
+          this.getCityName();
+          this.notification.success('::Deleted Successfully!')
+        })
+      }
+    });
+  }
 }

@@ -31,7 +31,7 @@ export class AdoptionPageComponent implements OnInit {
     
   }
   
-  selectedPetId = +this._route.snapshot.paramMap.get('petId') || 0;
+  selectedPetId = this._route.snapshot.paramMap.get('petId') || null;
   
   get name(){
     return this.adoptionForm.get('name')
@@ -95,7 +95,7 @@ export class AdoptionPageComponent implements OnInit {
   onSubmit(){
     console.log("Adopted");
     // RouterLink="address"
-    console.log(this.adoptionForm);
+    // console.log(this.adoptionForm);
     // this._userService.postUserDetails(this.adoptionForm).subscribe(result=>{
     //   console.log(result);
       // sessionStorage.setItem("adopterId", result);
@@ -103,8 +103,9 @@ export class AdoptionPageComponent implements OnInit {
     console.log(this.adoptionForm.value);
     this._userService.postUserDetails(this.adoptionForm.value, this.selectedPetId).subscribe(result=>{
       console.log(result);
-      // sessionStorage.setItem("adopterId", result.id);
-      this.router.navigate(['/address', result.id,result.userName,this.selectedPetId]);
+      sessionStorage.setItem("userName", result.userName);
+      sessionStorage.setItem("petId", this.selectedPetId);
+      this.router.navigate(['/address', result.id]);
 
     })
       // this.router.navigate(['/address', '2']);

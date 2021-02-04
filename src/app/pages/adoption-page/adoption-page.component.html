@@ -1,59 +1,69 @@
-<div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
-    <mat-card fxFlex="40">
-        <mat-toolbar color="primary" class="heading">Adoption Form</mat-toolbar>
-  
-        <form fxLayoutAlign="stretch" fxLayout="column" novalidate 
-            (ngSubmit)="onSubmit()" class="adoptionForm" [formGroup]="adoptionForm">
-            <mat-form-field appearance="fill">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name" >
-            <!-- <mat-error *ngIf="name.hasError('required')">You must enter a value</mat-error> -->
-            <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">{{getNameErrorMsg()}}</mat-error>
-        </mat-form-field>
-         
-  
-            <mat-form-field appearance="fill">
-                <mat-label>Adhaar Number</mat-label>
-                <input matInput formControlName="aadharNumber" >
-            <!-- <mat-error *ngIf="adhaarNumber.hasError('required')">You must enter a value</mat-error> -->
-            <mat-error *ngIf="aadharNumber.invalid && (aadharNumber.dirty || aadharNumber.touched)">{{getAdhaarNumberErrorMsg()}}</mat-error>
-          </mat-form-field>
-          
-  
-            <mat-form-field appearance="fill">
-                <mat-label>Age</mat-label>
-                <input matInput type="number" formControlName="age"  >
-            <!-- <mat-error *ngIf="age.hasError('required')">You must enter a value</mat-error> -->
-          <mat-error *ngIf="age.invalid && (age.dirty || age.touched)">{{getAgeErrorMsg()}}</mat-error>
-      </mat-form-field>
-  
-            <mat-form-field appearance="fill">
-                <mat-label>Mobile Number</mat-label>
-                <input matInput type="tel" formControlName="phoneNumber"  >
-            <!-- <mat-error *ngIf="phoneNumber.hasError('required')">You must enter a value</mat-error> -->
-             <mat-error *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">{{getPhoneNumberErrorMsg()}}</mat-error>
-          </mat-form-field>
-  
-            <mat-form-field appearance="fill">
-                <mat-label>Email Id</mat-label>
-                <input matInput type="email" formControlName="emaild" >
-            <!-- <mat-error *ngIf="emailId.hasError('required')">You must enter a value</mat-error> -->
-            <mat-error *ngIf="emaild.invalid && (emaild.dirty || emaild.touched)">{{getEmailErrorMsg()}}</mat-error>
-          </mat-form-field>
-          
-            <!-- <mat-form-field appearance="fill"> -->
+<div class="adoptform">
+    <div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
+        <mat-card fxFlex="40">
+            <mat-toolbar color="primary" class="heading">Adoption Form</mat-toolbar>
+
+            <form fxLayoutAlign="stretch" fxLayout="column" novalidate (ngSubmit)="onSubmit()" class="adoptionForm"
+                [formGroup]="adoptionForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                    <!-- <mat-error *ngIf="name.hasError('required')">You must enter a value</mat-error> -->
+                    <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">{{getNameErrorMsg()}}</mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Adhaar Number</mat-label>
+                    <input matInput formControlName="aadharNumber">
+                    <!-- <mat-error *ngIf="adhaarNumber.hasError('required')">You must enter a value</mat-error> -->
+                    <mat-error *ngIf="aadharNumber.invalid && (aadharNumber.dirty || aadharNumber.touched)">
+                        {{getAdhaarNumberErrorMsg()}}</mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Age</mat-label>
+                    <input matInput type="number" formControlName="age">
+                    <!-- <mat-error *ngIf="age.hasError('required')">You must enter a value</mat-error> -->
+                    <mat-error *ngIf="age.invalid && (age.dirty || age.touched)">{{getAgeErrorMsg()}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput type="tel" formControlName="phoneNumber">
+                    <!-- <mat-error *ngIf="phoneNumber.hasError('required')">You must enter a value</mat-error> -->
+                    <mat-error *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+                        {{getPhoneNumberErrorMsg()}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput type="email" formControlName="emaild">
+                    <!-- <mat-error *ngIf="emailId.hasError('required')">You must enter a value</mat-error> -->
+                    <mat-error *ngIf="emaild.invalid && (emaild.dirty || emaild.touched)">{{getEmailErrorMsg()}}
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- <mat-form-field appearance="fill"> -->
                 <mat-card-content>
                     By checking the box below, you understand the terms of this form and adoptee.
-                     You hereby agree that you will not use this animal in any sort of fighting, breeding, or cruelty. 
-                     You will love and care for this animal for the rest of its life, and you are ready to commit to that.
-                      You also agree, that if for any circumstances you can no longer provide love and care for this animal, 
-                     you will contact an admin of the group and explain your situation before taking the animal to a shelter.
-    
+                    You hereby agree that you will not use this animal in any sort of fighting, breeding, or cruelty.
+                    You will love and care for this animal for the rest of its life, and you are ready to commit to
+                    that.
+                    You also agree, that if for any circumstances you can no longer provide love and care for this
+                    animal,
+                    you will contact an admin of the group and explain your situation before taking the animal to a
+                    shelter.
+
                 </mat-card-content>
-                <mat-checkbox formControlName="petitionSigned" >I understand the above, and have tried to the best of my knowledge<br> to make sure all information is correct.</mat-checkbox>
+                <mat-checkbox formControlName="petitionSigned">I understand the above, and have tried to the best of my
+                    knowledge<br> to make sure all information is correct.</mat-checkbox>
                 <mat-error *ngIf="petitionSigned.hasError('required')">You must sign the petetion</mat-error>
-        <!-- </mat-form-field> -->
-            <button mat-raised-button type="submit" color="primary" [disabled]="!(petitionSigned.value) || !(adoptionForm.valid)">Next</button>
-        </form>
-    </mat-card>
-  </div>
+                <!-- </mat-form-field> -->
+                <button mat-raised-button type="submit" color="primary"
+                    [disabled]="!(petitionSigned.value) || !(adoptionForm.valid)">Next</button>
+            </form>
+        </mat-card>
+    </div>
+</div>

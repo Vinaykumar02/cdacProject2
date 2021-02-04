@@ -1,12 +1,14 @@
 .mainDiv mat-card{
-    background-color: rgba(255, 245, 245, 80%);
-    padding: 0px;
-
+    background-color: rgba(255, 245, 245, 0%);
+    display: block;
+    box-shadow: 0.5px 0.5px 4px 4px  black;
 }
 
 .mainDiv{
-    background-image: url("../../../assets/logn.gif");
-    height: 100%;
+    
+    /* margin-bottom: 9000px; */
+    background-image: url("../../../assets/art4.jpg");
+    /* height: 5000px; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,11 +31,11 @@ button{
 .cattygif{
     background-image: url("../../../assets/catty.gif") !important;
     display: block;
-    width:250px;
+    width:70%;
     height: 250px;
     background-position: center;
-    transform: translate(120px,50px);
-    animation-name: stop;
+    transform: translate(22%,20%);
+    /* animation-name: stop; */
     
     
 }
@@ -41,5 +43,9 @@ button{
     animation-duration:1s;
 }
 .loginPage{
-    height: 100%;
+    height: 117%;
+}
+mat-form-field{
+    background-color: rgba(255, 245, 245, 40%);
+    
 }
